@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- index.html  21 Nov 2019 03:44:50 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Otika - Admin Dashboard Template</title>
+    <link rel="stylesheet" href="assets/css/app.min.css">
+    <link rel="stylesheet" href="assets/bundles/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="assets/bundles/owlcarousel2/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/bundles/owlcarousel2/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/bundles/summernote/summernote-bs4.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/Customs.css">
+    <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+    <style>
+        .userdetailbox ul {
+            list-style: none;
+            /* default bullets hataye */
+            padding-left: 0;
+        }
+
+        .userdetailbox ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+
+        .userdetailbox ul li::before {
+            content: "\f00c";
+            /* Font Awesome check icon */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #007bff;
+            /* blue */
+        }
+
+        .userlinkstp .action-btn {
+            background-color: #f0f0f0;
+            /* normal bg */
+            color: #000;
+            /* normal text */
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .userlinkstp .action-btn:hover {
+            background-color: blue;
+            /* hover bg */
+            color: white;
+            /* hover text */
+        }
+
+        .userlinkstp .action-btn:hover i {
+            color: white;
+            /* icon bhi white ho */
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div class="loader"></div>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar sticky">
+                <div class="form-inline mr-auto">
+                    <ul class="navbar-nav mr-3">
+                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
+									collapse-btn"> <i data-feather="align-justify"></i></a></li>
+                        <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                                <i data-feather="maximize"></i>
+                            </a></li>
+                        <li>
+                            <form class="form-inline mr-auto">
+                                <div class="search-element">
+                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search"
+                                        data-width="200">
+                                    <button class="btn" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav navbar-right">
+                    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                            class="nav-link nav-link-lg message-toggle"><i data-feather="mail"></i>
+                            <span class="badge headerBadge1">
+                                6 </span> </a>
+                        <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+                            <div class="dropdown-header">
+                                Messages
+                                <div class="float-right">
+                                    <a href="#">Mark All As Read</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-list-content dropdown-list-message">
+                                <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar
+											text-white"> <img alt="image" src="assets/img/users/user-1.png" class="rounded-circle">
+                                    </span> <span class="dropdown-item-desc"> <span class="message-user">John
+                                            Deo</span>
+                                        <span class="time messege-text">Please check your mail !!</span>
+                                        <span class="time">2 Min Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                        <img alt="image" src="assets/img/users/user-2.png" class="rounded-circle">
+                                    </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                                            Smith</span> <span class="time messege-text">Request for leave
+                                            application</span>
+                                        <span class="time">5 Min Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                        <img alt="image" src="assets/img/users/user-5.png" class="rounded-circle">
+                                    </span> <span class="dropdown-item-desc"> <span class="message-user">Jacob
+                                            Ryan</span> <span class="time messege-text">Your payment invoice is
+                                            generated.</span> <span class="time">12 Min Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                        <img alt="image" src="assets/img/users/user-4.png" class="rounded-circle">
+                                    </span> <span class="dropdown-item-desc"> <span class="message-user">Lina
+                                            Smith</span> <span class="time messege-text">hii John, I have upload
+                                            doc
+                                            related to task.</span> <span class="time">30
+                                            Min Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                        <img alt="image" src="assets/img/users/user-3.png" class="rounded-circle">
+                                    </span> <span class="dropdown-item-desc"> <span class="message-user">Jalpa
+                                            Joshi</span> <span class="time messege-text">Please do as specify.
+                                            Let me
+                                            know if you have any query.</span> <span class="time">1
+                                            Days Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                        <img alt="image" src="assets/img/users/user-2.png" class="rounded-circle">
+                                    </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                                            Smith</span> <span class="time messege-text">Client Requirements</span>
+                                        <span class="time">2 Days Ago</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="dropdown-footer text-center">
+                                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                            class="nav-link notification-toggle nav-link-lg"><i data-feather="bell" class="bell"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+                            <div class="dropdown-header">
+                                Notifications
+                                <div class="float-right">
+                                    <a href="#">Mark All As Read</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-list-content dropdown-list-icons">
+                                <a href="#" class="dropdown-item dropdown-item-unread"> <span
+                                        class="dropdown-item-icon bg-primary text-white"> <i class="fas
+												fa-code"></i>
+                                    </span> <span class="dropdown-item-desc"> Template update is
+                                        available now! <span class="time">2 Min
+                                            Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span
+                                        class="dropdown-item-icon bg-info text-white"> <i class="far
+												fa-user"></i>
+                                    </span> <span class="dropdown-item-desc"> <b>You</b> and <b>Dedik
+                                            Sugiharto</b> are now friends <span class="time">10 Hours
+                                            Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span
+                                        class="dropdown-item-icon bg-success text-white"> <i class="fas
+												fa-check"></i>
+                                    </span> <span class="dropdown-item-desc"> <b>Kusnaedi</b> has
+                                        moved task <b>Fix bug header</b> to <b>Done</b> <span class="time">12
+                                            Hours
+                                            Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span
+                                        class="dropdown-item-icon bg-danger text-white"> <i
+                                            class="fas fa-exclamation-triangle"></i>
+                                    </span> <span class="dropdown-item-desc"> Low disk space. Let's
+                                        clean it! <span class="time">17 Hours Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span
+                                        class="dropdown-item-icon bg-info text-white"> <i class="fas
+												fa-bell"></i>
+                                    </span> <span class="dropdown-item-desc"> Welcome to Otika
+                                        template! <span class="time">Yesterday</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="dropdown-footer text-center">
+                                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image"
+                                src="assets/img/user.png" class="user-img-radious-style"> <span
+                                class="d-sm-none d-lg-inline-block"></span></a>
+                        <div class="dropdown-menu dropdown-menu-right pullDown">
+                            <div class="dropdown-title">Hello Sarah Smith</div>
+                            <a href="profile.html" class="dropdown-item has-icon"> <i class="far
+										fa-user"></i> Profile
+                            </a> <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
+                                Activities
+                            </a> <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i
+                                    class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+           <div class="main-sidebar sidebar-style-2">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="index.html"> <img alt="image" src="assets/img/logo.png" class="header-logo" /> <span
+                class="logo-name">Otika</span>
+            </a>
+          </div>
+          <ul class="sidebar-menu">
+            <li class="menu-header">Main</li>
+            <li class="dropdown active">
+              <a href="index.html" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Edit Account
+                  Detail</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./editAccountDetail.html">Edit Acount detail</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Company Public
+                  Profile</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./CompanyPuplicProfile.html">Company Public Profile</a></li>
+
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>Post a
+                  Jobs</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./postJob.html">Post a Jobs</a></li>
+
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>Manage
+                  Jobs</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./managethePostedJob.html">Manage Posted job</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  CV search Package</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./CVSearchPackage.html">Cv
+                    Search packages
+                  </a></li>
+              </ul>
+            </li>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  Payment History</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./paymentHistory.html">Payment History</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  Unlock users</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./UnlockUser.html">Unlcok Users</a></li>
+                \
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  Company Messages</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./companymesage.html">Company Messages</a></li>
+              </ul>
+            </li>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  Company Profile</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./CompanyFlowers.html"> Company Profile</a></li>
+                <!-- <li><a class="nav-link" href="./Testimonial_form.html">Add new Testimonial</a></li> -->
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  Location</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./manage_location.html">Manage Location</a></li>
+                <li><a class="nav-link" href="./manage_location_form.html">Add new Location</a></li>
+                <li><a class="nav-link" href="./counteries.html">All Counteries</a></li>
+                <li><a class="nav-link" href="./counteries_detail_form.html">Counteries Details</a></li>
+                <li><a class="nav-link" href="./state_datatable.html">State</a></li>
+                <li><a class="nav-link" href="./cities_table.html">Cities</a></li>
+
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  Employer Package</span></a>
+              <ul class="dropdown-menu">
+
+              </ul>
+        </aside>
+      </div>
+            <!-- Main Content -->
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-body">
+
+
+
+
+                        <div class="container">
+
+
+
+
+                            <h3>Applications Showing for the job: Marketing Specialist – Agriculture &amp; Agribusiness
+                            </h3>
+
+
+
+
+                            <div class="kanban-board mt-3">
+                                <div class="column" id="applied">
+                                    <h2>Applied Users</h2>
+                                    <div class="task" draggable="true" id="task52">
+
+                                        <div class="jobinfo">
+                                            <h3>Job Seeker</h3>
+                                            <div class="location d-flex mb-2"><i class="fas fa-map-marker-alt me-1"></i>
+                                                Bainbridge Island, Washington, United States of America</div>
+                                        </div>
+                                        <div class="minsalary"><i class="fas fa-money-bill"></i>
+                                            USD
+                                            <span>/ Yearly</span>
+                                        </div>
+
+
+                                        <div class="d-flex justify-content-end jobskrbtnact">
+                                            <a class="me-auto profbtn"
+                                                href="./viewProfile.html"
+                                                target="_blank">View Profile</a>
+                                            <button class="move-btn backward" onclick="moveTask(this, 'backward')"><i
+                                                    class="fas fa-reply"></i></button>
+                                            <button class="move-btn forward ms-1" onclick="moveTask(this, 'forward')"><i
+                                                    class="fas fa-share"></i></button>
+                                        </div>
+                                    </div>
+                                    <!-- job end -->
+                                    <div class="task" draggable="true" id="task53">
+
+                                        <div class="jobinfo">
+                                            <h3>Job Seeker</h3>
+                                            <div class="location d-flex mb-2"><i class="fas fa-map-marker-alt me-1"></i>
+                                                Bainbridge Island, Washington, United States of America</div>
+                                        </div>
+                                        <div class="minsalary"><i class="fas fa-money-bill"></i>
+                                            5000 USD
+                                            <span>/ Yearly</span>
+                                        </div>
+
+
+                                        <div class="d-flex justify-content-end jobskrbtnact">
+                                            <a class="me-auto profbtn"
+                                                href="./viewProfile.html"
+                                                target="_blank">View Profile</a>
+                                            <button class="move-btn backward" onclick="moveTask(this, 'backward')"><i
+                                                    class="fas fa-reply"></i></button>
+                                            <button class="move-btn forward ms-1" onclick="moveTask(this, 'forward')"><i
+                                                    class="fas fa-share"></i></button>
+                                        </div>
+                                    </div>
+                                    <!-- job end -->
+
+
+
+                                </div>
+
+                                <div class="column" id="rejected">
+                                    <h2>Rejected</h2>
+                                </div>
+
+                                <div class="column" id="shortlist">
+                                    <h2>Shortlisted</h2>
+                                </div>
+
+                                <div class="column" id="hired">
+                                    <h2>Hired</h2>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <!-- Pagination end -->
+    </div>
+    </div>
+    </div>
+    </div>
+    <footer class="main-footer">
+        <div class="footer-left">
+            <a href="templateshub.net">Templateshub</a></a>
+        </div>
+        <div class="footer-right">
+        </div>
+    </footer>
+    </div>
+    </div>
+    <!-- General JS Scripts -->
+    <!-- Core JS -->
+    <script src="assets/js/app.min.js"></script>
+
+    <!-- jQuery UI (before DataTables if needed) -->
+    <!-- <script src="assets/bundles/jquery-ui/jquery-ui.min.js"></script> -->
+
+
+    <!-- General JS Scripts -->
+    <script src="assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <script src="assets/bundles/chartjs/chart.min.js"></script>
+    <script src="assets/bundles/owlcarousel2/dist/owl.carousel.min.js"></script>
+    <script src="assets/bundles/summernote/summernote-bs4.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="assets/js/page/widget-data.js"></script>
+    <!-- Template JS File -->
+    <script src="assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="assets/js/custom.js"></script>
+</body>
+
+
+<!-- index.html  21 Nov 2019 03:47:04 GMT -->
+
+</html>

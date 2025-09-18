@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- index.html  21 Nov 2019 03:44:50 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Otika - Admin Dashboard Template</title>
+    <link rel="stylesheet" href="assets/css/app.min.css">
+    <link rel="stylesheet" href="assets/bundles/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="assets/bundles/owlcarousel2/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/bundles/owlcarousel2/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/bundles/summernote/summernote-bs4.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/Customs.css">
+    <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+    <style>
+        .userdetailbox ul {
+    list-style: none; /* default bullets hataye */
+    padding-left: 0;
+}
+
+.userdetailbox ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+}
+
+.userdetailbox ul li::before {
+    content: "\f00c"; /* Font Awesome check icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #007bff; /* blue */
+}
+.userlinkstp .action-btn {
+    background-color: #f0f0f0; /* normal bg */
+    color: #000;               /* normal text */
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.userlinkstp .action-btn:hover {
+    background-color: blue;  /* hover bg */
+    color: white;            /* hover text */
+}
+
+.userlinkstp .action-btn:hover i {
+    color: white; /* icon bhi white ho */
+}
+
+
+    </style>
+</head>
+
+
+
+<body>
+    <div class="loader"></div>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar sticky">
+                <div class="form-inline mr-auto">
+                    <ul class="navbar-nav mr-3">
+                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
+									collapse-btn"> <i data-feather="align-justify"></i></a></li>
+                        <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                                <i data-feather="maximize"></i>
+                            </a></li>
+                        <li>
+                            <form class="form-inline mr-auto">
+                                <div class="search-element">
+                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search"
+                                        data-width="200">
+                                    <button class="btn" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav navbar-right">
+                    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                            class="nav-link nav-link-lg message-toggle"><i data-feather="mail"></i>
+                            <span class="badge headerBadge1">
+                                6 </span> </a>
+                        <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+                            <div class="dropdown-header">
+                                Messages
+                                <div class="float-right">
+                                    <a href="#">Mark All As Read</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-list-content dropdown-list-message">
+                                <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar
+											text-white"> <img alt="image" src="assets/img/users/user-1.png" class="rounded-circle">
+                                    </span> <span class="dropdown-item-desc"> <span class="message-user">John
+                                            Deo</span>
+                                        <span class="time messege-text">Please check your mail !!</span>
+                                        <span class="time">2 Min Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                        <img alt="image" src="assets/img/users/user-2.png" class="rounded-circle">
+                                    </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                                            Smith</span> <span class="time messege-text">Request for leave
+                                            application</span>
+                                        <span class="time">5 Min Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                        <img alt="image" src="assets/img/users/user-5.png" class="rounded-circle">
+                                    </span> <span class="dropdown-item-desc"> <span class="message-user">Jacob
+                                            Ryan</span> <span class="time messege-text">Your payment invoice is
+                                            generated.</span> <span class="time">12 Min Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                        <img alt="image" src="assets/img/users/user-4.png" class="rounded-circle">
+                                    </span> <span class="dropdown-item-desc"> <span class="message-user">Lina
+                                            Smith</span> <span class="time messege-text">hii John, I have upload
+                                            doc
+                                            related to task.</span> <span class="time">30
+                                            Min Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                        <img alt="image" src="assets/img/users/user-3.png" class="rounded-circle">
+                                    </span> <span class="dropdown-item-desc"> <span class="message-user">Jalpa
+                                            Joshi</span> <span class="time messege-text">Please do as specify.
+                                            Let me
+                                            know if you have any query.</span> <span class="time">1
+                                            Days Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                        <img alt="image" src="assets/img/users/user-2.png" class="rounded-circle">
+                                    </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                                            Smith</span> <span class="time messege-text">Client Requirements</span>
+                                        <span class="time">2 Days Ago</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="dropdown-footer text-center">
+                                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                            class="nav-link notification-toggle nav-link-lg"><i data-feather="bell" class="bell"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+                            <div class="dropdown-header">
+                                Notifications
+                                <div class="float-right">
+                                    <a href="#">Mark All As Read</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-list-content dropdown-list-icons">
+                                <a href="#" class="dropdown-item dropdown-item-unread"> <span
+                                        class="dropdown-item-icon bg-primary text-white"> <i class="fas
+												fa-code"></i>
+                                    </span> <span class="dropdown-item-desc"> Template update is
+                                        available now! <span class="time">2 Min
+                                            Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span
+                                        class="dropdown-item-icon bg-info text-white"> <i class="far
+												fa-user"></i>
+                                    </span> <span class="dropdown-item-desc"> <b>You</b> and <b>Dedik
+                                            Sugiharto</b> are now friends <span class="time">10 Hours
+                                            Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span
+                                        class="dropdown-item-icon bg-success text-white"> <i class="fas
+												fa-check"></i>
+                                    </span> <span class="dropdown-item-desc"> <b>Kusnaedi</b> has
+                                        moved task <b>Fix bug header</b> to <b>Done</b> <span class="time">12
+                                            Hours
+                                            Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span
+                                        class="dropdown-item-icon bg-danger text-white"> <i
+                                            class="fas fa-exclamation-triangle"></i>
+                                    </span> <span class="dropdown-item-desc"> Low disk space. Let's
+                                        clean it! <span class="time">17 Hours Ago</span>
+                                    </span>
+                                </a> <a href="#" class="dropdown-item"> <span
+                                        class="dropdown-item-icon bg-info text-white"> <i class="fas
+												fa-bell"></i>
+                                    </span> <span class="dropdown-item-desc"> Welcome to Otika
+                                        template! <span class="time">Yesterday</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="dropdown-footer text-center">
+                                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image"
+                                src="assets/img/user.png" class="user-img-radious-style"> <span
+                                class="d-sm-none d-lg-inline-block"></span></a>
+                        <div class="dropdown-menu dropdown-menu-right pullDown">
+                            <div class="dropdown-title">Hello Sarah Smith</div>
+                            <a href="profile.html" class="dropdown-item has-icon"> <i class="far
+										fa-user"></i> Profile
+                            </a> <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
+                                Activities
+                            </a> <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i
+                                    class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+         <div class="main-sidebar sidebar-style-2">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="index.html"> <img alt="image" src="assets/img/logo.png" class="header-logo" /> <span
+                class="logo-name">Otika</span>
+            </a>
+          </div>
+          <ul class="sidebar-menu">
+            <li class="menu-header">Main</li>
+            <li class="dropdown active">
+              <a href="index.html" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Edit Account
+                  Detail</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./editAccountDetail.html">Edit Acount detail</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Company Public
+                  Profile</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./CompanyPuplicProfile.html">Company Public Profile</a></li>
+
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>Post a
+                  Jobs</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./postJob.html">Post a Jobs</a></li>
+
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>Manage
+                  Jobs</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./managethePostedJob.html">Manage Posted job</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  CV search Package</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./CVSearchPackage.html">Cv
+                    Search packages
+                  </a></li>
+              </ul>
+            </li>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  Payment History</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./paymentHistory.html">Payment History</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  Unlock users</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./UnlockUser.html">Unlcok Users</a></li>
+                \
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  Company Messages</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./companymesage.html">Company Messages</a></li>
+              </ul>
+            </li>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  Company Profile</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./CompanyFlowers.html"> Company Profile</a></li>
+                <!-- <li><a class="nav-link" href="./Testimonial_form.html">Add new Testimonial</a></li> -->
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  Location</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="./manage_location.html">Manage Location</a></li>
+                <li><a class="nav-link" href="./manage_location_form.html">Add new Location</a></li>
+                <li><a class="nav-link" href="./counteries.html">All Counteries</a></li>
+                <li><a class="nav-link" href="./counteries_detail_form.html">Counteries Details</a></li>
+                <li><a class="nav-link" href="./state_datatable.html">State</a></li>
+                <li><a class="nav-link" href="./cities_table.html">Cities</a></li>
+
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                  Employer Package</span></a>
+              <ul class="dropdown-menu">
+
+              </ul>
+        </aside>
+      </div>
+            <!-- Main Content -->
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-body">
+
+
+                        <!-- Job Detail start -->
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="usercoverimg">
+
+                                    <img src="./assets/img/image-gallery/coverPhoto.png"
+                                        alt="Job Seeker" title="Job Seeker">
+
+                                </div>
+
+                                <div class="userMaininfo">
+                                    <div class="userPic"><img
+                                            src="./assets/img/users/user-6.png"
+                                            alt="Job Seeker" title="Job Seeker"> </div>
+                                    <div class="title">
+                                        <h3>Job Seeker <span>(Information Technology)</span></h3>
+                                        <div class="redyto">
+                                            <span><i class="fas fa-laptop"></i> Ready for Hire</span>
+                                        </div>
+                                        <div class="desi"><i class="fa fa-map-marker" aria-hidden="true"></i> Bainbridge
+                                            Island, Washington, United States of America</div>
+
+                                        <div class="membersinc"><i class="fa fa-history" aria-hidden="true"></i> Member
+                                            Since, Sep 19, 2018</div>
+
+                                    </div>
+
+
+
+                                </div>
+
+
+
+                           <!-- Buttons -->
+<div class="userlinkstp">
+
+    <a href="#" class="action-btn">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i> Shortlist
+    </a>
+
+    <a href="#" class="action-btn">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i> Hire This Candidate
+    </a>
+
+    <a href="./viewProfile.html" class="action-btn">
+        <i class="fa fa-download" aria-hidden="true"></i> Download CV
+    </a>
+
+    <a href="javascript:;" onclick="send_message()" class="action-btn">
+        <i class="fa fa-envelope" aria-hidden="true"></i> Send Message
+    </a>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                                <!-- About Employee start -->
+                                <div class="userdetailbox">
+                                    <h3>About me</h3>
+                                    <p>Hello! I&#039;m Sharjeel, A Passionate UI/UX Designer and Frontend Developer with
+                                        a strong technical background. I bring innovation and attention to detail to
+                                        create visually stunning, user-centric designs. Proactive and disciplined, I
+                                        excel in ensuring maximum accessibility and elevating customer experiences
+                                        throughout the development process. Let&#039;s redefine digital interactions
+                                        together.</p>
+
+                                </div>
+
+                                <div class="userdetailbox">
+                                    <h3><i class="fas fa-tools"></i> Skills</h3>
+                                    <ul>
+                                        <li>HTML / CSS</li>
+                                        <li>JavaScript</li>
+                                        <li>PHP & MySQL</li>
+                                    </ul>
+                                </div>
+
+                                <div class="userdetailbox">
+                                    <h3><i class="fas fa-language"></i> Languages</h3>
+                                    <ul>
+                                        <li>English - Fluent</li>
+                                        <li>Urdu - Native</li>
+                                        <li>Arabic - Basic</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Experience start -->
+                                <div class="userdetailbox">
+                                    <h3><i class="fas fa-briefcase"></i> Experience</h3>
+                                    <ul>
+                                        <li>Web Developer – XYZ Company (2021 - Present)</li>
+                                        <li>Frontend Intern – ABC Agency (2020 - 2021)</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Education start -->
+                                <div class="userdetailbox">
+                                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                                    <ul>
+                                        <li>Bachelor in Computer Science – University of Lahore (2018 - 2022)</li>
+                                        <li>Intermediate in Pre-Engineering – Govt. College (2016 - 2018)</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Portfolio start -->
+                                <div class="userdetailbox profileproject">
+                                    <h3><i class="fas fa-folder-open"></i> Portfolio</h3>
+                                    <div class="d-flex">
+                                        <div class="d-flex">
+                                            <a href="#"><img src="./assets/img/blog/img04.png" alt=""
+                                                    class="w-75 img-fluid"></a>
+                                        </div>
+                                        <div class="d-flex">
+                                            <a href="#"><img src="./assets/img/blog/img01.png" alt=""
+                                                    class="w-75 img-fluid"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                            </div>
+                            <div class="col-md-4">
+                                <!-- Candidate Contact -->
+                                <div class="job-header">
+                                    <div class="jobdetail">
+                                        <h3>Contact Information</h3>
+                                        <div class="candidateinfo">
+                                            <div class="loctext"><i class="fa fa-phone" aria-hidden="true"></i> <a
+                                                    href="tel:+1234567890">+1234567890</a></div>
+                                            <div class="loctext"><i class="fa fa-mobile" aria-hidden="true"></i> <a
+                                                    href="tel:+1324564798">+1324564798</a></div>
+                                            <div class="loctext"><i class="fa fa-envelope" aria-hidden="true"></i> <a
+                                                    href="mailto:seeker@jobsportal.com">seeker@jobsportal.com</a></div>
+                                            <div class="loctext"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                Dummy Street Address 123 USA</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Candidate Detail start -->
+                                <div class="job-header">
+                                    <div class="jobdetail">
+                                        <h3>Candidate Details</h3>
+                                        <ul class="jbdetail row">
+                                            <li class="col-lg-6 col-md-6 col-6">
+                                                <div class="jbitlist">
+                                                    <span class="material-symbols-outlined">verified</span>
+                                                    <div class="jbitdata">
+                                                        <strong>Verified</strong>
+                                                        <span>Yes</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="col-lg-6 col-md-6 col-6">
+                                                <div class="jbitlist">
+                                                    <span class="material-symbols-outlined">handshake</span>
+                                                    <div class="jbitdata">
+                                                        <strong>Ready for Hire</strong>
+                                                        <span>Yes</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="col-lg-6 col-md-6 col-6">
+                                                <div class="jbitlist">
+                                                    <span class="material-symbols-outlined">cake</span>
+                                                    <div class="jbitdata">
+                                                        <strong>Age</strong>
+                                                        <span>36 Years</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="col-lg-6 col-md-6 col-6">
+                                                <div class="jbitlist">
+                                                    <span class="material-symbols-outlined">account_circle</span>
+                                                    <div class="jbitdata">
+                                                        <strong>Gender</strong>
+                                                        <span>Male</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="col-lg-6 col-md-6 col-6">
+                                                <div class="jbitlist">
+                                                    <span class="material-symbols-outlined">content_paste</span>
+                                                    <div class="jbitdata">
+                                                        <strong>Marital Status</strong>
+                                                        <span>Single</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="col-lg-6 col-md-6 col-6">
+                                                <div class="jbitlist">
+                                                    <span class="material-symbols-outlined">business_center</span>
+                                                    <div class="jbitdata">
+                                                        <strong>Experience</strong>
+                                                        <span>6 years</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="col-lg-6 col-md-6 col-6">
+                                                <div class="jbitlist">
+                                                    <span class="material-symbols-outlined">schema</span>
+                                                    <div class="jbitdata">
+                                                        <strong>Career Level</strong>
+                                                        <span>Experienced Professional</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="col-lg-6 col-md-6 col-6">
+                                                <div class="jbitlist">
+                                                    <span class="material-symbols-outlined">location_on</span>
+                                                    <div class="jbitdata">
+                                                        <strong>Location</strong>
+                                                        <span>Bainbridge Island, Washington, United States of
+                                                            America</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="col-lg-6 col-md-6 col-6">
+                                                <div class="jbitlist">
+                                                    <span class="material-symbols-outlined">paid</span>
+                                                    <div class="jbitdata">
+                                                        <strong>Current Salary</strong>
+                                                        <span>6000</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="col-lg-6 col-md-6 col-6">
+                                                <div class="jbitlist">
+                                                    <span class="material-symbols-outlined">payments</span>
+                                                    <div class="jbitdata">
+                                                        <strong>Expected Salary</strong>
+                                                        <span>10000</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+
+                                <!-- Profile Video start -->
+                                <div class="userdetailbox profileproject">
+                                    <h3>Video Profile</h3>
+                                    <iframe src="https://www.youtube.com/embed/538cRSPrwZU" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+                    </div>
+            </div>
+            <div class="modal fade" id="sendmessage" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <form action="" id="send-form">
+                            <input type="hidden" name="_token" value="HmbWBIt1dbfdyve9yXAnvJiW636QuLsC5vGcLS1L"
+                                autocomplete="off"> <input type="hidden" name="seeker_id" id="seeker_id" value="6">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Send Message</h4>
+                                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="message" id="message" cols="10"
+                                        rows="7"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pagination end -->
+    </div>
+    </div>
+    </div>
+    </div>
+    <footer class="main-footer">
+        <div class="footer-left">
+            <a href="templateshub.net">Templateshub</a></a>
+        </div>
+        <div class="footer-right">
+        </div>
+    </footer>
+    </div>
+    </div>
+    <!-- General JS Scripts -->
+    <!-- Core JS -->
+    <script src="assets/js/app.min.js"></script>
+
+    <!-- jQuery UI (before DataTables if needed) -->
+    <!-- <script src="assets/bundles/jquery-ui/jquery-ui.min.js"></script> -->
+
+
+    <!-- General JS Scripts -->
+    <script src="assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <script src="assets/bundles/chartjs/chart.min.js"></script>
+    <script src="assets/bundles/owlcarousel2/dist/owl.carousel.min.js"></script>
+    <script src="assets/bundles/summernote/summernote-bs4.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="assets/js/page/widget-data.js"></script>
+    <!-- Template JS File -->
+    <script src="assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="assets/js/custom.js"></script>
+</body>
+
+
+<!-- index.html  21 Nov 2019 03:47:04 GMT -->
+
+</html>

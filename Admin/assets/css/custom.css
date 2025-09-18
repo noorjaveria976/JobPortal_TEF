@@ -1,0 +1,9 @@
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3VzdG9tLmNzcyIsInNvdXJjZXMiOlsiY3VzdG9tLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiJ9 */
+
+/*# sourceMappingURL=custom.css.map */
+table td {
+  white-space: normal !important;  /* allow line break */
+  word-wrap: break-word;          /* break long words */
+  max-width: 200px;               /* adjust width as you like */
+}
