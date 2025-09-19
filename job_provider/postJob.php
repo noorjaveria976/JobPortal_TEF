@@ -2,55 +2,105 @@
 session_start();
 include "../job_seeker/include/config.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $title            = mysqli_real_escape_string($conn, $_POST['title']);
-    $description      = mysqli_real_escape_string($conn, $_POST['description']);
-    $benefits         = mysqli_real_escape_string($conn, $_POST['benefits']);
-    $country_id       = $_POST['country_id'];
-    $state_id         = $_POST['state_id'];
-    $city_id          = $_POST['city_id'];
-    $company_name     = mysqli_real_escape_string($conn, $_POST['company_name']); // Added
-    $salary_from      = $_POST['salary_from'];
-    $salary_to        = $_POST['salary_to'];
-    $salary_currency  = $_POST['salary_currency'];
-    $salary_period_id = $_POST['salary_period_id'];
-    $hide_salary      = $_POST['hide_salary'];
-    $career_level_id  = $_POST['career_level_id'];
-    $functional_area_id = $_POST['functional_area_id'];
-    $job_type_id      = $_POST['job_type_id'];
-    $job_shift_id     = $_POST['job_shift_id'];
-    $num_of_positions = $_POST['num_of_positions'];
-    $gender_id        = $_POST['gender_id'];
-    $expiry_date      = $_POST['expiry_date'];
-    $degree_level_id  = $_POST['degree_level_id'];
+// Agar edit mode hai to job id URL me milegi
+$job_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$job = [];
+
+// Agar edit mode hai to purana data fetch karo
+if ($job_id > 0) {
+    $sql = "SELECT * FROM jobs WHERE id = $job_id LIMIT 1";
+    $result = mysqli_query($conn, $sql);
+    $job = mysqli_fetch_assoc($result);
+}
+
+// Dropdown ke liye tables se data fetch
+$countries         = mysqli_query($conn, "SELECT id, name FROM countries ORDER BY name ASC");
+$cities            = mysqli_query($conn, "SELECT id, name FROM cities ORDER BY name ASC");
+$career_levels     = mysqli_query($conn, "SELECT id, name FROM career_levels ORDER BY id ASC");
+$functional_areas  = mysqli_query($conn, "SELECT id, name FROM functional_areas ORDER BY name ASC");
+$job_types         = mysqli_query($conn, "SELECT id, name FROM job_types ORDER BY id ASC");
+$job_shifts        = mysqli_query($conn, "SELECT id, name FROM job_shifts ORDER BY id ASC");
+$degree_levels     = mysqli_query($conn, "SELECT id, name FROM degree_levels ORDER BY id ASC");
+$experiences       = mysqli_query($conn, "SELECT id, name FROM job_experiences ORDER BY id ASC");
+$genders           = mysqli_query($conn, "SELECT id, name FROM genders ORDER BY id ASC");
+$salary_periods    = mysqli_query($conn, "SELECT id, name FROM salary_periods ORDER BY id ASC");
+
+// Form submit hone par
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Saare fields ko fetch karo
+    $title             = mysqli_real_escape_string($conn, $_POST['title']);
+    $description       = mysqli_real_escape_string($conn, $_POST['description']);
+    $benefits          = mysqli_real_escape_string($conn, $_POST['benefits']);
+    $country_id        = $_POST['country_id'];
+    $city_id           = $_POST['city_id'];
+    $company_name      = $_POST['company_name'];
+    $salary_from       = $_POST['salary_from'];
+    $salary_to         = $_POST['salary_to'];
+    $salary_currency   = $_POST['salary_currency'];
+    $salary_period_id  = $_POST['salary_period_id'];
+    $hide_salary       = $_POST['hide_salary'];
+    $career_level_id   = $_POST['career_level_id'];
+    $functional_area_id= $_POST['functional_area_id'];
+    $job_type_id       = $_POST['job_type_id'];
+    $job_shift_id      = $_POST['job_shift_id'];
+    $num_of_positions  = $_POST['num_of_positions'];
+    $gender_id         = $_POST['gender_id'];
+    $expiry_date       = $_POST['expiry_date'];
+    $degree_level_id   = $_POST['degree_level_id'];
     $job_experience_id = $_POST['job_experience_id'];
-    $is_freelance     = $_POST['is_freelance'];
-    $external_job     = $_POST['external_job'];
-    $job_link         = mysqli_real_escape_string($conn, $_POST['job_link']);
+    $is_freelance      = $_POST['is_freelance'];
+    $external_job      = $_POST['external_job'];
+    $job_link          = mysqli_real_escape_string($conn, $_POST['job_link']);
 
-    $sql = "INSERT INTO jobs (
-                title, description, benefits, country_id, state_id, city_id, company_name,
-                salary_from, salary_to, salary_currency, salary_period_id, hide_salary,
-                career_level_id, functional_area_id, job_type_id, job_shift_id,
-                num_of_positions, gender_id, expiry_date, degree_level_id, job_experience_id,
-                is_freelance, external_job, job_link
-            ) VALUES (
-                '$title', '$description', '$benefits', '$country_id', '$state_id', '$city_id', '$company_name',
-                '$salary_from', '$salary_to', '$salary_currency', '$salary_period_id', '$hide_salary',
-                '$career_level_id', '$functional_area_id', '$job_type_id', '$job_shift_id',
-                '$num_of_positions', '$gender_id', '$expiry_date', '$degree_level_id', '$job_experience_id',
-                '$is_freelance', '$external_job', '$job_link'
-            )";
+    if ($job_id > 0) {
+        // 🔄 UPDATE Query
+        $sql = "UPDATE jobs SET 
+            title='$title',
+            description='$description',
+            benefits='$benefits',
+            country_id='$country_id',
+            city_id='$city_id',
+            company_name='$company_name',
+            salary_from='$salary_from',
+            salary_to='$salary_to',
+            salary_currency='$salary_currency',
+            salary_period_id='$salary_period_id',
+            hide_salary='$hide_salary',
+            career_level_id='$career_level_id',
+            functional_area_id='$functional_area_id',
+            job_type_id='$job_type_id',
+            job_shift_id='$job_shift_id',
+            num_of_positions='$num_of_positions',
+            gender_id='$gender_id',
+            expiry_date='$expiry_date',
+            degree_level_id='$degree_level_id',
+            job_experience_id='$job_experience_id',
+            is_freelance='$is_freelance',
+            external_job='$external_job',
+            job_link='$job_link'
+        WHERE id = $job_id";
 
-    if ($conn->query($sql) === TRUE) {
-        // $_SESSION['success'] = "Job posted successfully!";
-        header("Location: postJob.php");
-        exit();
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('Job updated successfully!');window.location='postJob.php';</script>";
+        } else {
+            echo "Error: " . mysqli_error($conn);
+        }
     } else {
-        echo "Error: " . $conn->error;
+        // ➕ INSERT Query
+        $sql = "INSERT INTO jobs 
+            (title, description, benefits, country_id, city_id, company_name, salary_from, salary_to, salary_currency, salary_period_id, hide_salary, career_level_id, functional_area_id, job_type_id, job_shift_id, num_of_positions, gender_id, expiry_date, degree_level_id, job_experience_id, is_freelance, external_job, job_link, created_at, status) 
+        VALUES 
+            ('$title','$description','$benefits','$country_id','$city_id','$company_name','$salary_from','$salary_to','$salary_currency','$salary_period_id','$hide_salary','$career_level_id','$functional_area_id','$job_type_id','$job_shift_id','$num_of_positions','$gender_id','$expiry_date','$degree_level_id','$job_experience_id','$is_freelance','$external_job','$job_link',NOW(),'active')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('Job posted successfully!');window.location='postJob.php';</script>";
+        } else {
+            echo "Error: " . mysqli_error($conn);
+        }
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -110,326 +160,198 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <!-- Personal Information -->
                         <!-- Personal Information -->
                         <h5>Job Details</h5>
-                        <form method="POST" action="" accept-charset="UTF-8" class="form"><input name="_token"
-                                type="hidden" value="HmbWBIt1dbfdyve9yXAnvJiW636QuLsC5vGcLS1L">
+                        <form method="POST" action="" accept-charset="UTF-8" class="form">
                             <div class="row">
+                                <!-- Job Title -->
                                 <div class="col-md-12">
-                                    <div class="formrow "> <input class="form-control" id="title"
-                                            placeholder="Job title" name="title" type="text">
-                                    </div>
+                                    <input class="form-control" id="title" placeholder="Job title" name="title" type="text"
+                                        value="<?= $job['title'] ?? '' ?>">
                                 </div>
+
+                                <!-- Description -->
                                 <div class="col-md-12 mt-3">
-                                    <div class="formrow ">
-                                        <label for="" class="pb-2">Description</label>
-                                        <textarea id="description" name="description"
-                                            class="form-control summernote-simple">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur voluptatum alias molestias minus quod dignissimos.</textarea>
-                                    </div>
+                                    <label>Description</label>
+                                    <textarea id="description" name="description" class="form-control summernote-simple"><?= $job['description'] ?? '' ?></textarea>
                                 </div>
 
-                                <div class="col-md-12 ">
-                                    <div class="formrow ">
-                                        <label for="" class="pb-2">Benefits</label>
-                                        <textarea id="benefits" name="benefits"
-                                            class="form-control summernote-simple">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur voluptatum alias molestias minus quod dignissimos.</textarea>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="col-md-4 ">
-                                    <div class="formrow " id="country_id_div"> <select class="form-control"
-                                            id="country_id" name="country_id">
-                                            <option value="">Select Country</option>
-                                            <option value="Afghanistan">Afghanistan</option>
-                                            <option value="Albania">Albania</option>
-                                            <option value="Algeria">Algeria</option>
-                                            <option value="American Samoa">American Samoa</option>
-                                            <option value="Andorra">Andorra</option>
-                                            <option value="Angola">Angola</option>
-                                            <option value="Anguilla">Anguilla</option>
-                                            
-
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="formrow" id="city_id_div">
-                                        <select class="form-control" id="city_id" name="city_id">
-                                            <option value="" selected>Select City</option>
-                                            <option value="Lahore">Lahore</option>
-                                            <option value="Karachi">Karachi</option>
-                                            <option value="Islamabad">Islamabad</option>
-                                            <option value="Faisalabad">Faisalabad</option>
-                                            <option value="Multan">Multan</option>
-                                            <option value="Rawalpindi">Rawalpindi</option>
-                                            <option value="Peshawar">Peshawar</option>
-                                            <option value="Quetta">Quetta</option>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="formrow">
-                                        <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Enter Company Name" required>
-                                    </div>
-                                </div>
-                         
-                                <div class="col-md-6 mt-3">
-                                    <div class="formrow " id="salary_from_div"> <input class="form-control"
-                                            id="salary_from" placeholder="Salary from" name="salary_from" type="number">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <div class="formrow " id="salary_to_div">
-                                        <input class="form-control" id="salary_to" placeholder="Salary to"
-                                            name="salary_to" type="number">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="formrow " id="salary_currency_div">
-
-                                        <select class="form-control" id="salary_currency" name="salary_currency">
-                                            <option value="">Select Salary Currency</option>
-                                            <option value="£">SYP (£)</option>
-                                            <option value="$">USD ($)</option>
-                                            <option value="€">EUR (€)</option>
-                                            <option value="د.إ">AED (د.إ)</option>
-                                            <option value="؋">AF (؋)</option>
-                                            <option value="Lek">ALL (Lek)</option>
-                                            <option value="ƒ">AWG (ƒ)</option>
-                                            <option value="ман">AZ (ман)</option>
-                                            <option value="KM">BAM (KM)</option>
-                                            <option value="лв">UZS (лв)</option>
-                                            <option value="$b">BOB ($b)</option>
-                                            <option value="R$">BRL (R$)</option>
-                                            <option value="P">BWP (P)</option>
-                                            <option value="p.">BYR (p.)</option>
-                                            <option value="CHF">CHF (CHF)</option>
-                                            <option value="¥">JPY (¥)</option>
-                                            <option value="₡">CRC (₡)</option>
-                                            <option value="₱">CUP (₱)</option>
-                                            <option value="Kč">CZK (Kč)</option>
-                                            <option value="kr">SEK (kr)</option>
-                                            <option value="RD$">DOP (RD$)</option>
-                                            <option value="¢">GHC (¢)</option>
-                                            <option value="Q">GTQ (Q)</option>
-                                            <option value="L">HNL (L)</option>
-                                            <option value="Ft">HUF (Ft)</option>
-                                            <option value="Rp">INR (Rp)</option>
-                                            <option value="₪">ILS (₪)</option>
-                                            <option value="﷼">YER (﷼)</option>
-                                            <option value="J$">JMD (J$)</option>
-
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="formrow " id="salary_period_id_div"> <select class="form-control"
-                                            id="salary_period_id" name="salary_period_id">
-                                            <option value="" selected="selected">Select Salary Period</option>
-                                            <option value="Weekly">Weekly</option>
-                                            <option value="Monthly">Monthly</option>
-                                            <option value="Yearly">Yearly</option>
-                                            <option value="5"></option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="formrow "> <label for="hide_salary" class="bold">Hide Salary?</label>
-                                        <div class="radio-list">
-                                            <label class="radio-inline">
-                                                <input id="hide_salary_yes" name="hide_salary" type="radio" value="1">
-                                                Yes </label>
-                                            <label class="radio-inline">
-                                                <input id="hide_salary_no" name="hide_salary" type="radio" value="0"
-                                                    checked=&quot;checked&quot;>
-                                                No </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <div class="formrow " id="career_level_id_div"> <select class="form-control"
-                                            id="career_level_id" name="career_level_id">
-                                            <option value="" selected="selected">Select Career level</option>
-                                            <option value="Department Head">Department Head</option>
-                                            <option value="Entry Level">Entry Level</option>
-                                            <option value="Experienced Professional">Experienced Professional</option>
-                                            <option value="GM / CEO / Country Head / President">GM / CEO / Country Head / President</option>
-                                            <option value="Intern/Student">Intern/Student</option>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 mt-3">
-                                    <div class="formrow " id="functional_area_id_div"> <select class="form-control"
-                                            id="functional_area_id" name="functional_area_id">
-                                            <option value="" selected="selected">Select Functional Area</option>
-                                            <option value="Other">Other</option>
-                                            
-                                            <option value="Information Technology">Information Technology</option>
-                                            <option value="Management and Manufacturing">Management and Manufacturing</option>
-                                            <option value="Engineering and Information Technology">Engineering and Information Technology</option>
-                                            <option value="Health Care Provider">Health Care Provider</option>
-                                            <option value="Accounting/Auditing and Finance">Accounting/Auditing and Finance</option>
-                                            <option value="Administrative">Administrative</option>
-                                            <option value="Sales and Business Development">Sales and Business Development</option>
-                                            <option value="Accountant">Accountant</option>
-                                            <option value="Accounts, Finance &amp; Financial Services">Accounts, Finance &amp; Financial Services</option>
-                                            <option value="Admin">Admin</option>
-                                            <option value="Admin Operation">Admin Operation</option>
-                                            <option value="Administration">Administration</option>
-                                            
-
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <div class="formrow " id="job_type_id_div"> <select class="form-control"
-                                            id="job_type_id" name="job_type_id">
-                                            <option value="" selected="selected">Select Job Type</option>
-                                            <option value="Contract">Contract</option>
-                                            <option value="Freelance">Freelance</option>
-                                            <option value="Full Time/Permanent">Full Time/Permanent</option>
-                                            <option value="Internship">Internship</option>
-                                            <option value="Part Time">Part Time</option>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <div class="formrow " id="job_shift_id_div"> <select class="form-control"
-                                            id="job_shift_id" name="job_shift_id">
-                                            <option value="" selected="selected">Select Job Shift</option>
-                                            <option value="First Shift (Day)">First Shift (Day)</option>
-                                            <option value="Second Shift (Afternoon)">Second Shift (Afternoon)</option>
-                                            <option value="Third Shift (Night)">Third Shift (Night)</option>
-                                            <option value="Rotating">Rotating</option>
-                                           
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <div class="formrow " id="num_of_positions_div"> <select class="form-control"
-                                            id="num_of_positions" name="num_of_positions">
-                                            <option value="" selected="selected">Select number of Positions</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <div class="formrow " id="gender_id_div"> <select class="form-control"
-                                            id="gender_id" name="gender_id">
-                                            <option value="" selected="selected">No preference</option>
-                                            <option value="Male">Male</option>
-                                            <option value="female">female</option>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <div class="formrow "> <input class="form-control datepicker" id="expiry_date"
-                                            placeholder="Job expiry date" autocomplete="off" name="expiry_date"
-                                            type="text">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <div class="formrow " id="degree_level_id_div"> <select class="form-control"
-                                            id="degree_level_id" name="degree_level_id">
-                                            <option value="" selected="selected">Select Required Degree Level</option>
-                                            <option value="Non-Matriculation">Non-Matriculation</option>
-                                            <option value="Matriculation/O-Level">Matriculation/O-Level</option>
-                                            <option value="Intermediate/A-Level">Intermediate/A-Level</option>
-                                            <option value="Bachelors">Bachelors</option>
-                                            <option value="Masters">Masters</option>
-                                            <option value="MPhil/MS">MPhil/MS</option>
-                                            <option value="PHD/Doctorate">PHD/Doctorate</option>
-                                            <option value="Certification">Certification</option>
-                                            <option value="Diploma">Diploma</option>
-                                            <option value="Short Course">Short Course</option>
-                                           
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <div class="formrow " id="job_experience_id_div"> <select class="form-control"
-                                            id="job_experience_id" name="job_experience_id">
-                                            <option value="" selected="selected">Select Required job experience</option>
-                                            <option value="Fresh">Fresh</option>
-                                            <option value="Less Than 1 Year">Less Than 1 Year</option>
-                                            <option value="1 Year">1 Year</option>
-                                            <option value="2 years">2 years</option>
-                                            <option value="3 years">3 years</option>
-                                            <option value="4 years">4 years</option>
-                                            <option value="5 years">5 years</option>
-                                            <option value="6 years">6 years</option>
-                                            <option value="7 years">7 years</option>
-
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <div class="formrow "> <label for="is_freelance" class="bold">Is Freelance?</label>
-                                        <div class="radio-list">
-                                            <label class="radio-inline">
-                                                <input id="is_freelance_yes" name="is_freelance" type="radio" value="1">
-                                                Yes </label>
-                                            <label class="radio-inline">
-                                                <input id="is_freelance_no" name="is_freelance" type="radio" value="0"
-                                                    checked=&quot;checked&quot;>
-                                                No </label>
-                                        </div>
-                                    </div>
-                                </div>
+                                <!-- Benefits -->
                                 <div class="col-md-12 mt-3">
-                                    <div class="formrow">
-                                        <label for="external_job" class="bold">Is this External Job?</label>
-                                        <div class="radio-list">
-                                            <label class="radio-inline">
-                                                <input id="external" name="external_job" type="radio" value="yes">
-                                                Yes
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input id="not_external" name="external_job" type="radio" value="no"
-                                                    checked=&quot;checked&quot;>
-                                                No
-                                            </label>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <div id="externalLinkField" class="formrow" style="display: none">
-                                            <label for="job_link" class="bold">External Link</label>
-                                            <input class="form-control" name="job_link" type="text" value=""
-                                                id="job_link">
-                                        </div>
-
-                                    </div>
-
+                                    <label>Benefits</label>
+                                    <textarea id="benefits" name="benefits" class="form-control summernote-simple"><?= $job['benefits'] ?? '' ?></textarea>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="formrow">
-                                        <button type="submit" class=" btn1">Submit the Jobs <i
-                                                class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
-                                    </div>
+
+                                <!-- Country -->
+                                <div class="col-md-4 mt-3">
+                                    <select class="form-control" id="country_id" name="country_id">
+                                        <option value="">Select Country</option>
+                                        <option value="Pakistan" <?= ($job['country_id'] ?? '') == "Pakistan" ? "selected" : "" ?>>Pakistan</option>
+                                        <option value="Afghanistan" <?= ($job['country_id'] ?? '') == "Afghanistan" ? "selected" : "" ?>>Afghanistan</option>
+                                        <option value="Albania" <?= ($job['country_id'] ?? '') == "Albania" ? "selected" : "" ?>>Albania</option>
+                                    </select>
+                                </div>
+
+                                <!-- City -->
+                                <div class="col-md-4">
+                                    <select class="form-control" id="city_id" name="city_id">
+                                        <option value="">Select City</option>
+                                        <?php
+                                        $cities = ["Lahore", "Karachi", "Islamabad", "Faisalabad", "Multan", "Rawalpindi"];
+                                        foreach ($cities as $c) {
+                                            $sel = ($job['city_id'] ?? '') == $c ? "selected" : "";
+                                            echo "<option value='$c' $sel>$c</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+                                <!-- Company -->
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="company_name" name="company_name"
+                                        value="<?= $job['company_name'] ?? '' ?>" placeholder="Enter Company Name">
+                                </div>
+
+                                <!-- Salary From -->
+                                <div class="col-md-6 mt-3">
+                                    <input class="form-control" id="salary_from" name="salary_from" type="number"
+                                        value="<?= $job['salary_from'] ?? '' ?>" placeholder="Salary from">
+                                </div>
+
+                                <!-- Salary To -->
+                                <div class="col-md-6 mt-3">
+                                    <input class="form-control" id="salary_to" name="salary_to" type="number"
+                                        value="<?= $job['salary_to'] ?? '' ?>" placeholder="Salary to">
+                                </div>
+
+                                <!-- Salary Currency -->
+                                <div class="col-md-4 mt-3">
+                                    <select class="form-control" id="salary_currency" name="salary_currency">
+                                        <option value="">Select Salary Currency</option>
+                                        <option value="$" <?= ($job['salary_currency'] ?? '') == "$" ? "selected" : "" ?>>USD ($)</option>
+                                        <option value="€" <?= ($job['salary_currency'] ?? '') == "€" ? "selected" : "" ?>>EUR (€)</option>
+                                        <option value="£" <?= ($job['salary_currency'] ?? '') == "£" ? "selected" : "" ?>>GBP (£)</option>
+                                    </select>
+                                </div>
+
+                                <!-- Salary Period -->
+                                <div class="col-md-4 mt-3">
+                                    <select class="form-control" id="salary_period_id" name="salary_period_id">
+                                        <option value="">Select Salary Period</option>
+                                        <option value="Weekly" <?= ($job['salary_period_id'] ?? '') == "Weekly" ? "selected" : "" ?>>Weekly</option>
+                                        <option value="Monthly" <?= ($job['salary_period_id'] ?? '') == "Monthly" ? "selected" : "" ?>>Monthly</option>
+                                        <option value="Yearly" <?= ($job['salary_period_id'] ?? '') == "Yearly" ? "selected" : "" ?>>Yearly</option>
+                                    </select>
+                                </div>
+
+                                <!-- Hide Salary -->
+                                <div class="col-md-4 mt-3">
+                                    <label>Hide Salary?</label><br>
+                                    <label><input type="radio" name="hide_salary" value="1" <?= ($job['hide_salary'] ?? '') == "1" ? "checked" : "" ?>> Yes</label>
+                                    <label><input type="radio" name="hide_salary" value="0" <?= ($job['hide_salary'] ?? '0') == "0" ? "checked" : "" ?>> No</label>
+                                </div>
+
+                                <!-- Career Level -->
+                                <div class="col-md-6 mt-3">
+                                    <select class="form-control" id="career_level_id" name="career_level_id">
+                                        <option value="">Select Career Level</option>
+                                        <option value="Entry Level" <?= ($job['career_level_id'] ?? '') == "Entry Level" ? "selected" : "" ?>>Entry Level</option>
+                                        <option value="Experienced Professional" <?= ($job['career_level_id'] ?? '') == "Experienced Professional" ? "selected" : "" ?>>Experienced Professional</option>
+                                    </select>
+                                </div>
+
+                                <!-- Functional Area -->
+                                <div class="col-md-6 mt-3">
+                                    <select class="form-control" id="functional_area_id" name="functional_area_id">
+                                        <option value="">Select Functional Area</option>
+                                        <option value="Information Technology" <?= ($job['functional_area_id'] ?? '') == "Information Technology" ? "selected" : "" ?>>Information Technology</option>
+                                        <option value="Sales and Business Development" <?= ($job['functional_area_id'] ?? '') == "Sales and Business Development" ? "selected" : "" ?>>Sales and Business Development</option>
+                                    </select>
+                                </div>
+
+                                <!-- Job Type -->
+                                <div class="col-md-6 mt-3">
+                                    <select class="form-control" id="job_type_id" name="job_type_id">
+                                        <option value="">Select Job Type</option>
+                                        <option value="Full Time/Permanent" <?= ($job['job_type_id'] ?? '') == "Full Time/Permanent" ? "selected" : "" ?>>Full Time/Permanent</option>
+                                        <option value="Part Time" <?= ($job['job_type_id'] ?? '') == "Part Time" ? "selected" : "" ?>>Part Time</option>
+                                        <option value="Internship" <?= ($job['job_type_id'] ?? '') == "Internship" ? "selected" : "" ?>>Internship</option>
+                                    </select>
+                                </div>
+
+                                <!-- Job Shift -->
+                                <div class="col-md-6 mt-3">
+                                    <select class="form-control" id="job_shift_id" name="job_shift_id">
+                                        <option value="">Select Job Shift</option>
+                                        <option value="First Shift (Day)" <?= ($job['job_shift_id'] ?? '') == "First Shift (Day)" ? "selected" : "" ?>>First Shift (Day)</option>
+                                        <option value="Second Shift (Afternoon)" <?= ($job['job_shift_id'] ?? '') == "Second Shift (Afternoon)" ? "selected" : "" ?>>Second Shift (Afternoon)</option>
+                                    </select>
+                                </div>
+
+                                <!-- Positions -->
+                                <div class="col-md-6 mt-3">
+                                    <input type="number" class="form-control" id="num_of_positions" name="num_of_positions"
+                                        value="<?= $job['num_of_positions'] ?? '' ?>" placeholder="Number of Positions">
+                                </div>
+
+                                <!-- Gender -->
+                                <div class="col-md-6 mt-3">
+                                    <select class="form-control" id="gender_id" name="gender_id">
+                                        <option value="">No preference</option>
+                                        <option value="Male" <?= ($job['gender_id'] ?? '') == "Male" ? "selected" : "" ?>>Male</option>
+                                        <option value="Female" <?= ($job['gender_id'] ?? '') == "Female" ? "selected" : "" ?>>Female</option>
+                                    </select>
+                                </div>
+
+                                <!-- Expiry Date -->
+                                <div class="col-md-6 mt-3">
+                                    <input type="text" class="form-control datepicker" id="expiry_date" name="expiry_date"
+                                        value="<?= $job['expiry_date'] ?? '' ?>" placeholder="Job expiry date">
+                                </div>
+
+                                <!-- Degree -->
+                                <div class="col-md-6 mt-3">
+                                    <select class="form-control" id="degree_level_id" name="degree_level_id">
+                                        <option value="">Select Required Degree</option>
+                                        <option value="Bachelors" <?= ($job['degree_level_id'] ?? '') == "Bachelors" ? "selected" : "" ?>>Bachelors</option>
+                                        <option value="Masters" <?= ($job['degree_level_id'] ?? '') == "Masters" ? "selected" : "" ?>>Masters</option>
+                                    </select>
+                                </div>
+
+                                <!-- Experience -->
+                                <div class="col-md-6 mt-3">
+                                    <select class="form-control" id="job_experience_id" name="job_experience_id">
+                                        <option value="">Select Experience</option>
+                                        <option value="Fresh" <?= ($job['job_experience_id'] ?? '') == "Fresh" ? "selected" : "" ?>>Fresh</option>
+                                        <option value="2 years" <?= ($job['job_experience_id'] ?? '') == "2 years" ? "selected" : "" ?>>2 years</option>
+                                    </select>
+                                </div>
+
+                                <!-- Freelance -->
+                                <div class="col-md-6 mt-3">
+                                    <label>Is Freelance?</label><br>
+                                    <label><input type="radio" name="is_freelance" value="1" <?= ($job['is_freelance'] ?? '') == "1" ? "checked" : "" ?>> Yes</label>
+                                    <label><input type="radio" name="is_freelance" value="0" <?= ($job['is_freelance'] ?? '0') == "0" ? "checked" : "" ?>> No</label>
+                                </div>
+
+                                <!-- External Job -->
+                                <div class="col-md-12 mt-3">
+                                    <label>Is this External Job?</label><br>
+                                    <label><input type="radio" name="external_job" value="yes" <?= ($job['external_job'] ?? '') == "yes" ? "checked" : "" ?>> Yes</label>
+                                    <label><input type="radio" name="external_job" value="no" <?= ($job['external_job'] ?? 'no') == "no" ? "checked" : "" ?>> No</label>
+                                </div>
+
+                                <!-- External Link -->
+                                <div class="col-md-12 mt-3">
+                                    <input class="form-control" name="job_link" type="text" id="job_link"
+                                        value="<?= $job['job_link'] ?? '' ?>" placeholder="External Link">
+                                </div>
+
+                                <!-- Submit -->
+                                <div class="col-md-12 mt-3">
+                                    <button type="submit" class="btn1">
+                                        <?= $job_id > 0 ? "Update Job" : "Post Job" ?>
+                                    </button>
                                 </div>
                             </div>
-                            <input type="file" name="image" id="image" style="display:none;" accept="image/*" />
                         </form>
                         <hr>
                     </div>

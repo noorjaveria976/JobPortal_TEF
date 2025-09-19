@@ -343,7 +343,8 @@ include "../job_seeker/include/config.php";
                             <div class="tab-pane fade show active" id="active-jobs">
                                 <?php
                                 // saari jobs fetch karo (latest first)
-                                $sql = "SELECT * FROM jobs ORDER BY created_at DESC";
+                                $sql = "SELECT * FROM jobs WHERE status='active' ORDER BY created_at DESC";
+
                                 $result = mysqli_query($conn, $sql);
                                 ?>
                                 <!-- card with php -->
@@ -351,7 +352,93 @@ include "../job_seeker/include/config.php";
                                     <?php if (mysqli_num_rows($result) > 0): ?>
                                         <?php while ($job = mysqli_fetch_assoc($result)): ?>
                                             <li class="col-lg-6 col-md-6 mb-4" id="job_li_<?= $job['id'] ?>">
-                                                <div class="jobint p-3 border rounded shadow-sm bg-white">
+                                                <div class="jobint p-3 border rounded shadow-sm ">
+
+                                                    <!-- Job Type -->
+                                                    <div class="d-flex mb-2">
+                                                        <div class="fticon">
+                                                            <i class="fas fa-briefcase"></i>
+                                                            <?= htmlspecialchars($job['job_type_id']) ?>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Job Title -->
+                                                    <h4 class="mb-2">
+                                                        <a href="viewjob.php?id=<?= $job['id'] ?>"
+                                                            title="<?= htmlspecialchars($job['title']) ?>"
+                                                            class="text-decoration-none text-dark">
+                                                            <?= htmlspecialchars($job['title']) ?>
+                                                        </a>
+                                                    </h4>
+
+                                                    <!-- Salary -->
+                                                    <div class="salary mb-2">
+                                                        Salary:
+                                                        <strong>
+                                                            <?php if ($job['hide_salary'] == 1): ?>
+                                                                Hidden
+                                                            <?php else: ?>
+                                                                <?= htmlspecialchars($job['salary_currency']) ?><?= htmlspecialchars($job['salary_from']) ?> -
+                                                                <?= htmlspecialchars($job['salary_to']) ?>/<?= htmlspecialchars($job['salary_period_id']) ?>
+                                                            <?php endif; ?>
+                                                        </strong>
+                                                    </div>
+
+                                                    <!-- Location -->
+                                                    <strong>
+                                                        <i class="fas fa-map-marker-alt"></i>
+                                                        <?= htmlspecialchars($job['city_id']) ?>
+                                                    </strong>
+
+                                                    <!-- Date -->
+                                                    <span class="ms-2"><?= date("M d, Y", strtotime($job['created_at'])) ?></span>
+
+                                                    <!-- Action Buttons -->
+                                                    <div class="d-flex mt-3 compjobslinks">
+                                                        <a class="btn btn-primary me-2"
+                                                            href="candidates.php?job_id=<?= $job['id'] ?>">
+                                                            Candidates
+                                                            <span class="badge bg-white text-dark">2</span>
+                                                        </a>
+
+                                                        <a class="btn btn-warning me-2"
+                                                            href="postJob.php?id=<?= $job['id'] ?>">
+                                                            Repost
+                                                        </a>
+
+                                                        <a class="btn btn-danger"
+                                                            href="javascript:;"
+                                                            onclick="deleteJob(<?= $job['id'] ?>, 'active');">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+
+
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        <?php endwhile; ?>
+                                    <?php else: ?>
+                                        <p class="text-center">No jobs found.</p>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+                            <!-- Active Jobs end -->
+
+                            <!-- Expired Jobs start -->
+                            <div class="tab-pane fade" id="expired-jobs">
+                                <?php
+                                // saari jobs fetch karo (latest first)
+                                $sql = "SELECT * FROM jobs WHERE status='expired' ORDER BY created_at DESC";
+
+
+                                $result = mysqli_query($conn, $sql);
+                                ?>
+                                <!-- card with php -->
+                                <ul class="row list-unstyled">
+                                    <?php if (mysqli_num_rows($result) > 0): ?>
+                                        <?php while ($job = mysqli_fetch_assoc($result)): ?>
+                                            <li class="col-lg-6 col-md-6 mb-4" id="job_li_<?= $job['id'] ?>">
+                                                <div class="jobint p-3 border rounded shadow-sm ">
 
                                                     <!-- Job Type -->
                                                     <div class="d-flex mb-2">
@@ -407,9 +494,12 @@ include "../job_seeker/include/config.php";
 
                                                         <a class="btn btn-danger"
                                                             href="javascript:;"
-                                                            onclick="deleteJob(<?= $job['id'] ?>);">
+                                                            onclick="deleteJob(<?= $job['id'] ?>, 'expired');">
                                                             <i class="fas fa-trash"></i>
                                                         </a>
+
+
+
                                                     </div>
                                                 </div>
                                             </li>
@@ -418,12 +508,8 @@ include "../job_seeker/include/config.php";
                                         <p class="text-center">No jobs found.</p>
                                     <?php endif; ?>
                                 </ul>
-                            </div>
-                            <!-- Active Jobs end -->
 
-                            <!-- Expired Jobs start -->
-                            <div class="tab-pane fade" id="expired-jobs">
-                                <ul class="featuredlist row">
+                                <!-- <ul class="featuredlist row">
 
                                     <li class="col-lg-6 col-md-6" id="job_li_95">
                                         <div class="jobint">
@@ -466,7 +552,7 @@ include "../job_seeker/include/config.php";
 
 
 
-                                </ul>
+                                </ul> -->
                             </div>
                             <!-- Expired Jobs end -->
                         </div>
@@ -601,6 +687,68 @@ include "../job_seeker/include/config.php";
     <script src="assets/js/scripts.js"></script>
     <!-- Custom JS File -->
     <script src="assets/js/custom.js"></script>
+
+    <!-- expire / delete job -->
+    <script>
+        function deleteJob(jobId, type) {
+            let action = (type === 'active') ? 'expire' : 'delete';
+            let confirmMsg = (type === 'active') ?
+                "Are you sure you want to expire this job?" :
+                "Are you sure you want to permanently delete this job?";
+
+            if (confirm(confirmMsg)) {
+                fetch("delete_job.php", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: "id=" + jobId + "&action=" + action
+                    })
+                    .then(res => res.text())
+                    .then(data => {
+                        if (data.trim() === "success") {
+                            let jobElement = document.getElementById("job_li_" + jobId);
+
+                            if (type === 'active') {
+                                // 1) Active se remove karo
+                                jobElement.remove();
+
+                                // 2) Expired jobs list me add karo
+                                let expiredList = document.querySelector("#expired-jobs ul");
+                                if (expiredList && jobElement) {
+                                    let clone = jobElement.cloneNode(true);
+
+                                    // Button ka onclick update karo for permanent delete
+                                    let deleteBtn = clone.querySelector(".btn-danger");
+                                    deleteBtn.setAttribute("onclick", "deleteJob(" + jobId + ", 'expired');");
+
+                                    expiredList.prepend(clone);
+                                }
+
+                                alert("Job moved to expired.");
+                            } else {
+                                // Expired job permanently delete
+                                jobElement.remove();
+                                alert("Job permanently deleted.");
+                            }
+                        } else {
+                            alert("Error: " + data);
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert("Something went wrong.");
+                    });
+            }
+        }
+    </script>
+
+
+
+
+
+
+
 </body>
 
 

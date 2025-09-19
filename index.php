@@ -418,7 +418,7 @@ include "./job_seeker/include/config.php";
       <!-- title end -->
       <?php
       // saari jobs fetch karo (latest first)
-      $sql = "SELECT * FROM jobs ORDER BY created_at DESC";
+      $sql = "SELECT * FROM jobs WHERE status='active' ORDER BY created_at DESC";
       $result = mysqli_query($conn, $sql);
       ?>
       <!--Featured Job start-->
