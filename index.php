@@ -13,7 +13,7 @@ include "./job_seeker/include/config.php";
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Jobs In United States of America</title>
+  <title>Jobs In TEF</title>
 
   <meta name="Description" content="Find best Jobs in United States of America, jobs listings and job opportunities on Jobs Portal. Browse more than 100K jobs in United States of America and apply for free! Jobs Portal is USA's leading job website where more than 52K top companies are posting jobs">
 
