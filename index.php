@@ -13,11 +13,11 @@ include "./job_seeker/include/config.php";
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Jobs In TEF</title>
+  <title>TEF - Admin Dashboard Template</title>
 
-  <meta name="Description" content="Find best Jobs in United States of America, jobs listings and job opportunities on Jobs Portal. Browse more than 100K jobs in United States of America and apply for free! Jobs Portal is USA's leading job website where more than 52K top companies are posting jobs">
+  <!-- <meta name="Description" content="Find best Jobs in United States of America, jobs listings and job opportunities on Jobs Portal. Browse more than 100K jobs in United States of America and apply for free! Jobs Portal is USA's leading job website where more than 52K top companies are posting jobs"> -->
 
-  <meta name="Keywords" content="Jobs in USA, Jobs uae, Jobs, Careers, Recruitment, Employment, Hiring, Banking, CVs, Career, Finance, IT, Marketing, Online Jobs, Opportunity,usa, Resume, Work, naukri, rizq, Rozi">
+  <!-- <meta name="Keywords" content="Jobs in USA, Jobs uae, Jobs, Careers, Recruitment, Employment, Hiring, Banking, CVs, Career, Finance, IT, Marketing, Online Jobs, Opportunity,usa, Resume, Work, naukri, rizq, Rozi"> -->
 
   <meta name="robots" content="ALL, FOLLOW,INDEX">
   <meta name="author" content="JobPortal.PK">
