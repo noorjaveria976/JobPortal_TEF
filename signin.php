@@ -19,9 +19,9 @@ if (isset($_POST['user_login_btn'])) {
             if ($user['role'] == 'job_seeker') {
                 header("Location: ./job_seeker/dashboard.php");
             } elseif ($user['role'] == 'job_provider') {
-                header("Location: job_provider/dashboard.php");
+                header("Location: ./job_provider/dashboard.php");
             } elseif ($user['role'] == 'job_admin') {
-                header("Location: ./job_admin/dashboard.php");
+                header("Location: ./Admin/dashboard.php");
             } else {
                 echo "<script>alert('Invalid role!');</script>";
             }
