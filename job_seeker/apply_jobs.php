@@ -10,26 +10,9 @@ include "include/config.php";
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>TEF - Admin Dashboard Template</title>
     <?php include('include/source.html'); ?>
-    <style>
-        li a {
-            text-decoration: none;
-            color: black;
-            list-style-type: none;
-        }
-
-        .jobcompany .company-logo {
-            display: block;
-            flex-shrink: 0;
-        }
-
-        .jobcompany .company-logo img {
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            border: 2px solid #ffffff;
-        }
-    </style>
+    <!-- Custom Style -->
+  <link href="assets/css/main.css" rel="stylesheet">
+   
 </head>
 
 <body>
@@ -53,75 +36,76 @@ include "include/config.php";
                         ?>
 
                         <div class="container my-4">
-                            <div class="row">
-                                <?php if (mysqli_num_rows($result) > 0): ?>
-                                    <?php while ($job = mysqli_fetch_assoc($result)): ?>
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card card-success h-100 shadow-sm">
-                                                <div class="card-body">
-                                                    <div class="jobint mt-0 mb-4 text-dark">
+                           <div class="row">
+        <?php if (mysqli_num_rows($result) > 0): ?>
+          <?php while ($job = mysqli_fetch_assoc($result)): ?>
+            <div class="col-md-4 mb-4">
+              <div class="card card-success h-100 shadow-sm">
+                <div class="card-body">
+                  <div class="jobint mt-0 mb-4 text-dark">
 
-                                                        <!-- Job Type -->
-                                                        <div class="d-flex">
-                                                            <div class="fticon">
-                                                                <i class="fas fa-briefcase bg-secondary p-2 border rounded-pill me-3"></i>
-                                                                <?= htmlspecialchars($job['job_type_id']) ?>
-                                                            </div>
-                                                        </div>
+                    <!-- Job Type -->
+                    <div class="d-flex">
+                      <div class="fticon">
+                        <i class="fas fa-briefcase bg-light p-2 border rounded-pill me-3"></i>
+                        <?= htmlspecialchars($job['job_type_id']) ?>
+                      </div>
+                    </div>
 
-                                                        <!-- Job Title -->
-                                                        <h4 class="fs-5 mt-2">
-                                                            <a class="text-decoration-none text-dark fs-4" href="viewjob.php?id=<?= $job['id'] ?>" title="<?= htmlspecialchars($job['title']) ?>">
-                                                                <?= htmlspecialchars($job['title']) ?>
-                                                            </a>
-                                                        </h4>
+                    <!-- Job Title -->
+                    <h4 class="fs-5 mt-2">
+                      <a class="text-decoration-none text-dark fs-4" href="viewjob.php?id=<?= $job['id'] ?>" title="<?= htmlspecialchars($job['title']) ?>">
+                        <?= htmlspecialchars($job['title']) ?>
+                      </a>
+                    </h4>
 
-                                                        <!-- Salary -->
-                                                        <div class="salary mb-2">
-                                                            Salary:
-                                                            <strong>
-                                                                <?php if ($job['hide_salary'] == 1): ?>
-                                                                    Hidden
-                                                                <?php else: ?>
-                                                                    <?= htmlspecialchars($job['salary_currency']) ?><?= htmlspecialchars($job['salary_from']) ?> -
-                                                                    <?= htmlspecialchars($job['salary_to']) ?>/<?= htmlspecialchars($job['salary_period_id']) ?>
-                                                                <?php endif; ?>
-                                                            </strong>
-                                                        </div>
+                    <!-- Salary -->
+                    <div class="salary mb-2">
+                      Salary:
+                      <strong>
+                        <?php if ($job['hide_salary'] == 1): ?>
+                          Hidden
+                        <?php else: ?>
+                          <?= htmlspecialchars($job['salary_currency']) ?><?= htmlspecialchars($job['salary_from']) ?> -
+                          <?= htmlspecialchars($job['salary_to']) ?>/<?= htmlspecialchars($job['salary_period_id']) ?>
+                        <?php endif; ?>
+                      </strong>
+                    </div>
 
-                                                        <!-- Location -->
-                                                        <strong>
-                                                            <i class="fas fa-map-marker-alt"></i> <?= htmlspecialchars($job['city_id']) ?>
-                                                        </strong>
+                    <!-- Location -->
+                    <strong>
+                      <i class="fas fa-map-marker-alt"></i> <?= htmlspecialchars($job['city_id']) ?>
+                    </strong>
 
-                                                        <!-- Company Info -->
-                                                        <div class="jobcompany d-flex bg-secondary mt-3 justify-content-between align-items-center py-2 px-3 border rounded">
-                                                            <div class="ftjobcomp">
-                                                                <span><?= date("M d, Y", strtotime($job['created_at'])) ?></span>
-                                                                <a href="viewjob.php?id=<?= $job['id'] ?>" title="<?= htmlspecialchars($job['functional_area_id']) ?>">
-                                                                    <?= htmlspecialchars($job['functional_area_id']) ?>
-                                                                </a>
-                                                            </div>
-                                                            <a href="#" class="company-logo" title="<?= htmlspecialchars($job['company_name']) ?>">
-                                                                <img src="assets/images/logo-dark.png" alt="<?= htmlspecialchars($job['company_name']) ?>" title="<?= htmlspecialchars($job['company_name']) ?>">
-                                                            </a>
-                                                        </div>
+                    <!-- Company Info -->
+                    <div class="jobcompany d-flex  mt-3 justify-content-between align-items-center py-2 px-3 border rounded-4 border-0" style="background: #f3f3f3;">
+                      <div class="ftjobcomp">
+                        <span><?= date("M d, Y", strtotime($job['created_at'])) ?></span>
+                        <a href="viewjob.php?id=<?= $job['id'] ?>" title="<?= htmlspecialchars($job['functional_area_id']) ?>">
+                          <?= htmlspecialchars($job['functional_area_id']) ?>
+                        </a>
+                      </div>
+                      <a href="#" class="company-logo" title="<?= htmlspecialchars($job['company_name']) ?>">
+                        <img src="./assets/img/logo tef.png" alt="<?= htmlspecialchars($job['company_name']) ?>" title="<?= htmlspecialchars($job['company_name']) ?>">
+                      </a>
+                    </div>
 
-                                                        <!-- View Details Button -->
-                                                        <a href="view_jobs.php?id=<?= $job['id'] ?>" class="btn btn-primary mt-3 w-50">
-                                                            <i class="fas fa-eye"></i> View Details
-                                                        </a>
+                    <!-- View Details Button -->
+                    <a href="view_jobs.php?id=<?= $job['id'] ?>" class="btn btn-primary mt-3 w-75">
+                      <i class="fas fa-eye"></i> View Details
+                    </a>
+                    
 
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php endwhile; ?>
-                                <?php else: ?>
-                                    <p class="text-center">No jobs found.</p>
-                                <?php endif; ?>
-                            </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php endwhile; ?>
+        <?php else: ?>
+          <p class="text-center">No jobs found.</p>
+        <?php endif; ?>
+      </div>
                         </div>
 
                     </div>

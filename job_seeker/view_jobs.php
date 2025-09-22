@@ -209,7 +209,7 @@ if (isset($_GET['id'])) {
                                             </a>
 
                                             <div class="d-flex align-items-center mb-3">
-                                                <img src="assets/images/logo-dark.png" alt="Logo" class="job-logo me-3">
+                                                <img src="./assets/img/logo tef.png" alt="Logo" class="job-logo me-3">
                                                 <div class="date-box me-3">
                                                     <strong><?= date("d", strtotime($job['created_at'] ?? $job['expiry_date'])) ?></strong>
                                                     <?= date("M", strtotime($job['created_at'] ?? $job['expiry_date'])) ?>

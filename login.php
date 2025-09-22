@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
             if ($user['role'] === 'admin') {
                 header("Location: Admin/dashboard.php");
             } elseif ($user['role'] === 'jobseeker') {
-                header("Location: job_seeker/dashboard.php");
+                header("Location: job_seeker/login.php");
             } elseif ($user['role'] === 'jobprovider') {
                 header("Location: job_provider/dashboard.php");
                 exit();

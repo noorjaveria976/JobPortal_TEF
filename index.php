@@ -472,7 +472,7 @@ include "./job_seeker/include/config.php";
                         </a>
                       </div>
                       <a href="#" class="company-logo" title="<?= htmlspecialchars($job['company_name']) ?>">
-                        <img src="assets/images/logo-dark.png" alt="<?= htmlspecialchars($job['company_name']) ?>" title="<?= htmlspecialchars($job['company_name']) ?>">
+                        <img src="./assets/img/logo tef.png" alt="<?= htmlspecialchars($job['company_name']) ?>" title="<?= htmlspecialchars($job['company_name']) ?>">
                       </a>
                     </div>
 

@@ -54,7 +54,7 @@ $result = mysqli_query($conn, $sql);
                         <div class="col-md-8 col-sm-8 d-flex">
                             <!-- Job Image -->
                             <div class="jobimg border p-1 rounded me-3" style="width: 80px; height: 80px; overflow:hidden;">
-                                <img src="assets/images/logo-dark.png" alt="<?= $job['company_name'] ?>" title="<?= $job['company_name'] ?>" class="img-fluid">
+                                <img src="./assets/img/logo tef.png" alt="<?= $job['company_name'] ?>" title="<?= $job['company_name'] ?>" class="img-fluid">
                             </div>
                             <!-- Job Info -->
                             <div class="jobinfo">

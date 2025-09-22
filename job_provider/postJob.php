@@ -209,6 +209,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <input type="text" class="form-control" id="company_name" name="company_name"
                                         value="<?= $job['company_name'] ?? '' ?>" placeholder="Enter Company Name">
                                 </div>
+                               
 
                                 <!-- Salary From -->
                                 <div class="col-md-6 mt-3">
