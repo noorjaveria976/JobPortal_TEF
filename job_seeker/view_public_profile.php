@@ -10,7 +10,7 @@ if ($user_id == 0) {
 <html lang="en">
 
 
-<!-- blank.html  21 Nov 2019 03:54:41 GMT -->
+
 
 <head>
   <meta charset="UTF-8">
@@ -132,10 +132,31 @@ if ($user_id == 0) {
           <div class="section-body">
             <div class="row">
               <div class="col-md-8">
+                <?php
+
+
+                    // Fetch profile data
+                    $sql = "SELECT * FROM job_seeker_profiles WHERE user_id='$user_id' LIMIT 1";
+                    $result = mysqli_query($conn, $sql);
+                    $profile = mysqli_fetch_assoc($result);
+
+                    
+
+                    // Profile Image
+                    $profileImg = !empty($profile['profile_image'])
+                      ? "uploads/profile/" . $profile['profile_image']
+                      : "uploads/profile/default.png";
+
+                      // Cover Image
+                    $cover_image = !empty($profile['cover_images'])
+                      ? "uploads/cover/" . $profile['cover_images']
+                      : "uploads/cover/default_cover.png";
+                    ?>
+
                 <!-- coverphoto -->
                 <div class="row usercoverphoto">
                   <div class="col-12 image">
-                    <img src="./assets/img/cover pic.jpg" alt="Job Seeker" title="Job Seeker">
+                    <img src="<?php echo $cover_image; ?>" alt="Job Seeker" title="Job Seeker" style="height: 240px;">
 
                   </div>
                 </div>
@@ -144,15 +165,22 @@ if ($user_id == 0) {
                   <div class="abtuser">
                     <div class="row d-flex">
                       <div class="col-lg-3 col-md-4">
-                        <div class="uavatar"><img src="./assets/img/users/user-11.jpg" alt="Job Seeker" title="Job Seeker"></div>
+                       
+                        <div class="uavatar">
+                          <!-- <img src="./assets/img/users/user-11.jpg" alt="Job Seeker" title="Job Seeker"> -->
+                          <img src="<?php echo $profileImg; ?>"
+                            style="max-width:100px; max-height:100px;" alt="Profile">
+                        </div>
                       </div>
                       <div class="col-lg-9 col-md-8">
                         <div class="title">
-                          <h3><span class="text-dark">Job Seeker</span> <span style="font-size: 14px;">(Information Technology)</span></h3>
+                          <h3><span class="text-dark"><?= $profile['first_name'] ?? '' ?><?= !empty($profile['last_name']) ? ' ' . $profile['last_name'] : '' ?></span> <span style="font-size: 14px;">(Information Technology)</span></h3>
                           <div class="redyto text-success mb-2">
                             <span><i class="fas fa-laptop"></i> Ready for Hire</span>
                           </div>
-                          <div class="desi"><i class="fa fa-map-marker" aria-hidden="true"></i> Bainbridge Island, Washington, United States of America</div>
+                          <div class="desi"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>
+                                  <?= $profile['city'] ?? '' ?><?= !empty($profile['state']) ? ', ' . $profile['state'] : '' ?><?= !empty($profile['country']) ? ', ' . $profile['country'] : '' ?>
+                                </strong></div>
 
                           <div class="membersinc"><i class="fa fa-history" aria-hidden="true"></i> Member Since, Sep 19, 2018</div>
 
@@ -755,8 +783,5 @@ if ($user_id == 0) {
   <!-- Custom JS File -->
   <script src="assets/js/custom.js"></script>
 </body>
-
-
-<!-- blank.html  21 Nov 2019 03:54:41 GMT -->
 
 </html>

@@ -44,7 +44,7 @@ $user_id = $_SESSION['user_id'] ?? 0;
                                 </script>
                                 <!-- Personal Information -->
                                 <?php
-                               
+
                                 // Fetch existing profile data
                                 $profile = mysqli_query($conn, "SELECT * FROM job_seeker_profiles WHERE user_id='$user_id' LIMIT 1");
                                 $data = mysqli_fetch_assoc($profile);
@@ -190,10 +190,26 @@ $user_id = $_SESSION['user_id'] ?? 0;
                                     <hr>
                                     <h5>Career Information</h5>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <!-- <div class="col-md-6">
                                             <label>Job Experience</label>
                                             <input class="form-control" name="job_experience" type="text"
                                                 value="<?= htmlspecialchars($data['job_experience'] ?? '') ?>" placeholder="Job Experience">
+                                        </div> -->
+                                        <div class="col-md-6">
+                                            <div>
+                                                <label for="">Job Experience <span>*</span></label>
+                                                <select class="form-control" name="job_experience">
+                                                    <option value="">Select Experience</option>
+                                                    <option value="Fresh"> <?= ($data['job_experience'] ?? '') == 'Fresh' ? 'selected' : '' ?> Fresh</option>
+                                                    <option value="Less Than 1 Year"> <?= ($data['job_experience'] ?? '') == 'Less Than 1 Year' ? 'selected' : '' ?> Less Than 1 Year</option>
+                                                    <option value="1 Year"> <?= ($data['job_experience'] ?? '') == '1 Year' ? 'selected' : '' ?> 1 Year</option>
+                                                    <option value="2 years"> <?= ($data['job_experience'] ?? '') == '2 years' ? 'selected' : '' ?> 2 years</option>
+                                                    <option value="3 years"> <?= ($data['job_experience'] ?? '') == ' 3 year' ? 'selected' : '' ?> 3 years</option>
+                                                    <option value="4 years"> <?= ($data['job_experience'] ?? '') == '4 years' ? 'selected' : '' ?> 4 years</option>
+                                                    <option value="5 years"> <?= ($data['job_experience'] ?? '') == '5 years' ? 'selected' : '' ?> 5 years</option>
+
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
                                             <label>Career Level</label>
@@ -1144,71 +1160,7 @@ $user_id = $_SESSION['user_id'] ?? 0;
             <option value="4">3 years</option>
             <option value="5">4 years</option>
             <option value="6">5 years</option>
-            <option value="7" selected="selected">6 years</option>
-            <option value="8">7 years</option>
-            <option value="9">8 years</option>
-            <option value="10">9 years</option>
-            <option value="2">10 years</option>
-            <option value="52">11 years</option>
-            <option value="54">12 Years</option>
-            <option value="55">13 Years</option>
-            <option value="56">14 Years</option>
-            <option value="57">15 Years</option>
-            <option value="58">16 Years</option>
-            <option value="59">17 Years</option>
-            <option value="60">18 Years</option>
-            <option value="61">19 Years</option>
-            <option value="62">20 Years</option>
-            <option value="63">21 Years</option>
-            <option value="64">22 years</option>
-            <option value="65">23 years</option>
-            <option value="66">24 Years</option>
-            <option value="67">25 Years</option>
-            <option value="68">26 Years</option>
-            <option value="69">27 Years</option>
-            <option value="70">28 Years</option>
-            <option value="71">29 Years</option>
-            <option value="72">30 years</option>
-            <option value="73">31 Years</option>
-            <option value="74">32 Years</option>
-            <option value="75">33 Years</option>
-            <option value="76">34 Years</option>
-            <option value="77">35 Years</option>
-            <option value="78">36 Years</option>
-            <option value="79">37 Years</option>
-            <option value="80">38 Years</option>
-            <option value="81">39 Years</option>
-            <option value="82">40 Years</option>
-            <option value="83">41 Years</option>
-            <option value="84">42 Years</option>
-            <option value="85">43 Years</option>
-            <option value="86">44 Years</option>
-            <option value="87">45 Years</option>
-            <option value="88">46 Years</option>
-            <option value="89">47 Years</option>
-            <option value="90">48 Years</option>
-            <option value="91">49 Years</option>
-            <option value="92">50 Years</option>
-            <option value="93">51 Years</option>
-            <option value="94">52 Years</option>
-            <option value="95">53 Years</option>
-            <option value="96">54 Years</option>
-            <option value="97">55 Years</option>
-            <option value="98">56 Years</option>
-            <option value="99">57 Years</option>
-            <option value="100">58 Years</option>
-            <option value="101">59 Years</option>
-            <option value="102">60 Years</option>
-            <option value="103">61 Years</option>
-            <option value="104">62 Years</option>
-            <option value="105">63 Years</option>
-            <option value="106">64 Years</option>
-            <option value="107">65 Years</option>
-            <option value="108">66 Years</option>
-            <option value="109">67 Years</option>
-            <option value="110">68 Years</option>
-            <option value="111">70 Years</option>
-            <option value="112"></option>
+
         </select>
     </div>
 </div>

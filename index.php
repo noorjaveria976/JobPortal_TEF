@@ -74,7 +74,8 @@ include "./job_seeker/include/config.php";
                 </li>
                 <li class="nav-item "><a href="" class="nav-link">Blog</a> </li>
                 <li class="nav-item "><a href="" class="nav-link">Contact Us</a> </li>
-                <li class="nav-item "><button class="btn btn-light" data-toggle="modal" data-target="#roleModal">Login</button> </li>
+                <li class="nav-item "><a href="login.php" class="nav-link">Login </a> </li>
+                <!-- <li class="nav-item "><button class="btn btn-light" data-toggle="modal" data-target="#roleModal">Login</button> </li> -->
                 <li class="nav-item register"><a href="auth-register.html" class="nav-link register">Register</a> </li>
                 <li class="nav-item dropdown userbtn"><a href=""><img src="https://www.sharjeelanjum.com/demos/jobsportal-update/company_logos/multimedia-design-1614272292-782.jpg" alt="Multimedia Design" title="Multimedia Design"></a>
                   <ul class="dropdown-menu">
