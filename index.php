@@ -481,9 +481,12 @@ include "./job_seeker/include/config.php";
                     <!-- <a href="view_jobs.php?id=<?= $job['id'] ?>" class="btn btn-primary mt-3 w-50">
                       <i class="fas fa-eye"></i> View Details
                     </a> -->
-                     <a href="login.php?role=jobseeker" class="btn btn-primary mt-3 w-50">
+                    <a href="view_jobs.php?id=<?= $job['id'] ?>" class="btn btn-primary mt-3 w-75">
                       <i class="fas fa-eye"></i> View Details
                     </a>
+                    <!-- <a href="login.php?role=jobseeker" class="btn btn-primary mt-3 w-50">
+                      <i class="fas fa-eye"></i> View Details
+                    </a> -->
 
 
                   </div>
