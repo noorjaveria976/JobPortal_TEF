@@ -128,7 +128,7 @@ if (isset($_GET['id'])) {
                         <div class="container-fluid py-4">
 
 
-                            <div class="card shadow">
+                            <div class="card shadow" style="border-radius: 20px;">
                                 <div class="card-body">
                                     <div class="row">
                                         <!-- Left Column -->

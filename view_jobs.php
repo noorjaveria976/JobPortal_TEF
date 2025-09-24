@@ -53,6 +53,11 @@ if (isset($_GET['id'])) {
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>TEF - Admin Dashboard Template</title>
     <?php include('./job_seeker/include/source.html'); ?>
+    <!-- Fav Icon -->
+    <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+    <link rel="stylesheet" href="assets/css/app.min.css">
+    <!-- Custom Style -->
+    <link href="assets/css/main.css" rel="stylesheet">
     <style>
         .date-box {
             background-color: #3498db;
@@ -114,7 +119,86 @@ if (isset($_GET['id'])) {
     <div class="loader"></div>
     <div id="app">
         <div class="main-wrapper main-wrapper-1">
-           
+            <div class="header" id="siteheader">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-12 col-12"> <a href="#" class="d-flex align-item-center"><img src="./assets/img/logo-dark.png" alt="JOBS PORTAL" class=" w-75"></a>
+                            <div class="navbar-header navbar-light">
+                                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nav-main" aria-controls="nav-main" aria-expanded="false" aria-label="Toggle navigation"> <i class="fas fa-bars"></i></button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-lg-10 col-md-12 col-12">
+
+                            <!-- Nav start -->
+                            <nav class="navbar navbar-expand-lg navbar-light">
+
+                                <div class="navbar-collapse collapse" id="nav-main">
+                                    <button class="close-toggler" type="button" data-toggle="offcanvas"> <span><i class="fas fa-times-circle" aria-hidden="true"></i></span> </button>
+
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item active"><a href="#" class="nav-link">Home</a> </li>
+                                        <li class="nav-item ">
+                                            <a href="" class="nav-link">Search Talent</a>
+                                        </li>
+                                        <li class="nav-item ">
+                                            <a href="" class="nav-link">Companies</a>
+                                        </li>
+                                        <li class="nav-item "><a href="" class="nav-link">Blog</a> </li>
+                                        <li class="nav-item "><a href="" class="nav-link">Contact Us</a> </li>
+                                        <li class="nav-item "><a href="login.php" class="nav-link">Login </a> </li>
+                                        <!-- <li class="nav-item "><button class="btn btn-light" data-toggle="modal" data-target="#roleModal">Login</button> </li> -->
+                                        <li class="nav-item register"><a href="auth-register.html" class="nav-link register">Register</a> </li>
+                                        <li class="nav-item dropdown userbtn"><a href=""><img src="https://www.sharjeelanjum.com/demos/jobsportal-update/company_logos/multimedia-design-1614272292-782.jpg" alt="Multimedia Design" title="Multimedia Design"></a>
+                                            <ul class="dropdown-menu">
+                                                <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a> </li>
+                                                <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-user" aria-hidden="true"></i> Company Profile</a></li>
+                                                <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-desktop" aria-hidden="true"></i> Post Job</a></li>
+                                                <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-envelope" aria-hidden="true"></i> Company Messages</a></li>
+                                                <li class="nav-item"><a href="logout.php" onclick="event.preventDefault(); document.getElementById('logout-form-header1').submit();" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a> </li>
+                                                <form id="logout-form-header1" action="logout" method="POST" style="display: none;">
+                                                    <input type="hidden" name="_token" value="dWQSThWOrTMy01T95xVXyfir5JdgLkzNqN6fLUtu" autocomplete="off">
+                                                </form>
+                                            </ul>
+                                        </li>
+
+                                        <!-- Modal for role selection -->
+                                        <div class="modal fade" id="roleModal" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Select Your Role</h5>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <div class="modal-body text-center mt-3">
+                                                        <a href="login.php?role=jobprovider" class="btn btn-primary btn-lg m-2">Login as Job Provider</a>
+                                                        <a href="login.php?role=jobseeker" class="btn btn-success btn-lg m-2">Login as Job Seeker</a>
+                                                        <a href="login.php?role=admin" class="btn btn-dark btn-lg m-2">Login as Admin</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </ul>
+
+                                    <!-- Nav collapes end -->
+
+                                </div>
+                                <div class="clearfix"></div>
+                            </nav>
+
+                            <!-- Nav end -->
+
+                        </div>
+                    </div>
+
+                    <!-- row end -->
+
+                </div>
+
+                <!-- Header container end -->
+
+            </div>
             <!-- Main Content -->
             <div class="maincontent">
                 <section class="section p-5">
@@ -359,9 +443,13 @@ if (isset($_GET['id'])) {
     <script src="assets/js/scripts.js"></script>
     <!-- Custom JS File -->
     <script src="assets/js/custom.js"></script>
+    
+   
+
+
 </body>
 
 
-<!-- blank.html  21 Nov 2019 03:54:41 GMT -->
+
 
 </html>

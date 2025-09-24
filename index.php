@@ -6,7 +6,7 @@ include "./job_seeker/include/config.php";
 
 <head>
   <meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
- 
+
   <meta charset="utf-8">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,6 +40,18 @@ include "./job_seeker/include/config.php";
   <link rel="stylesheet" href="assets/css/app.min.css">
   <!-- Custom Style -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    .hover-shadow:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+      transform: translateY(-5px);
+      cursor: pointer;
+    }
+
+    .transition {
+      transition: all 0.2s ease-in-out;
+    }
+  </style>
+
 </head>
 
 
@@ -72,8 +84,8 @@ include "./job_seeker/include/config.php";
                 <li class="nav-item ">
                   <a href="" class="nav-link">Companies</a>
                 </li>
-                <li class="nav-item "><a href="" class="nav-link">Blog</a> </li>
-                <li class="nav-item "><a href="" class="nav-link">Contact Us</a> </li>
+                <li class="nav-item "><a href="" class="nav-link">Contact</a> </li>
+                <li class="nav-item "><a href="faqs.php" class="nav-link">FAQ'S </a> </li>
                 <li class="nav-item "><a href="login.php" class="nav-link">Login </a> </li>
                 <!-- <li class="nav-item "><button class="btn btn-light" data-toggle="modal" data-target="#roleModal">Login</button> </li> -->
                 <li class="nav-item register"><a href="auth-register.html" class="nav-link register">Register</a> </li>
@@ -413,7 +425,7 @@ include "./job_seeker/include/config.php";
   <div class="section featuredjobwrap">
     <div class="container">
       <!-- title start -->
-      <div class="titleTop text-center">
+      <div class="titleTop text-center mb-5">
         <h3>Latest Jobs</h3>
       </div>
       <!-- title end -->
@@ -423,85 +435,82 @@ include "./job_seeker/include/config.php";
       $result = mysqli_query($conn, $sql);
       ?>
       <!--Featured Job start-->
+
       <div class="row">
         <?php if (mysqli_num_rows($result) > 0): ?>
           <?php while ($job = mysqli_fetch_assoc($result)): ?>
             <div class="col-md-4 mb-4">
-              <div class="card card-success h-100 shadow-sm">
-                <div class="card-body">
-                  <div class="jobint mt-0 mb-4 text-dark">
 
-                    <!-- Job Type -->
-                    <div class="d-flex">
-                      <div class="fticon">
-                        <i class="fas fa-briefcase bg-light p-2 border rounded-pill me-3"></i>
-                        <?= htmlspecialchars($job['job_type_id']) ?>
+              <!-- Wrap whole card in anchor -->
+              <a href="view_jobs.php?id=<?= $job['id'] ?>" class="text-decoration-none text-dark">
+                <div class="card card-success h-100 shadow-sm border
+              transition transform hover-shadow" style="border-radius: 20px;">
+                  <div class="card-body">
+                    <div class="jobint mt-0 mb-4 text-dark">
+
+                      <!-- Job Type -->
+                      <div class="d-flex">
+                        <div class="fticon">
+                          <i class="fas fa-briefcase bg-light p-2 border rounded-pill me-3"></i>
+                          <?= htmlspecialchars($job['job_type_id']) ?>
+                        </div>
                       </div>
-                    </div>
 
-                    <!-- Job Title -->
-                    <h4 class="fs-5 mt-2">
-                      <a class="text-decoration-none text-dark fs-4" href="viewjob.php?id=<?= $job['id'] ?>" title="<?= htmlspecialchars($job['title']) ?>">
-                        <?= htmlspecialchars($job['title']) ?>
-                      </a>
-                    </h4>
+                      <!-- Job Title -->
+                      <h4 class="fs-5 mt-2">
+                        <span class="text-dark fs-4" title="<?= htmlspecialchars($job['title']) ?>">
+                          <?= htmlspecialchars($job['title']) ?>
+                        </span>
+                      </h4>
 
-                    <!-- Salary -->
-                    <div class="salary mb-2">
-                      Salary:
+                      <!-- Salary -->
+                      <div class="salary mb-2">
+                        Salary:
+                        <strong>
+                          <?php if ($job['hide_salary'] == 1): ?>
+                            Hidden
+                          <?php else: ?>
+                            <?= htmlspecialchars($job['salary_currency']) ?><?= htmlspecialchars($job['salary_from']) ?> -
+                            <?= htmlspecialchars($job['salary_to']) ?>/<?= htmlspecialchars($job['salary_period_id']) ?>
+                          <?php endif; ?>
+                        </strong>
+                      </div>
+
+                      <!-- Location -->
                       <strong>
-                        <?php if ($job['hide_salary'] == 1): ?>
-                          Hidden
-                        <?php else: ?>
-                          <?= htmlspecialchars($job['salary_currency']) ?><?= htmlspecialchars($job['salary_from']) ?> -
-                          <?= htmlspecialchars($job['salary_to']) ?>/<?= htmlspecialchars($job['salary_period_id']) ?>
-                        <?php endif; ?>
+                        <i class="fas fa-map-marker-alt"></i> <?= htmlspecialchars($job['city_id']) ?>
                       </strong>
-                    </div>
 
-                    <!-- Location -->
-                    <strong>
-                      <i class="fas fa-map-marker-alt"></i> <?= htmlspecialchars($job['city_id']) ?>
-                    </strong>
-
-                    <!-- Company Info -->
-                    <div class="jobcompany d-flex  mt-3 justify-content-between align-items-center py-2 px-3 border rounded-4 border-0" style="background: #f3f3f3;">
-                      <div class="ftjobcomp">
-                        <span><?= date("M d, Y", strtotime($job['created_at'])) ?></span>
-                        <a href="viewjob.php?id=<?= $job['id'] ?>" title="<?= htmlspecialchars($job['functional_area_id']) ?>">
-                          <?= htmlspecialchars($job['functional_area_id']) ?>
-                        </a>
+                      <!-- Company Info -->
+                      <div class="jobcompany d-flex mt-3 justify-content-between align-items-center py-2 px-3 border rounded-4 border-0" style="background: #f3f3f3;">
+                        <div class="ftjobcomp">
+                          <span><?= date("M d, Y", strtotime($job['created_at'])) ?></span>
+                          <span title="<?= htmlspecialchars($job['functional_area_id']) ?>">
+                            <?= htmlspecialchars($job['functional_area_id']) ?>
+                          </span>
+                        </div>
+                        <div class="company-logo" title="<?= htmlspecialchars($job['company_name']) ?>">
+                          <img src="./assets/img/logo tef.png" alt="<?= htmlspecialchars($job['company_name']) ?>" title="<?= htmlspecialchars($job['company_name']) ?>">
+                        </div>
                       </div>
-                      <a href="#" class="company-logo" title="<?= htmlspecialchars($job['company_name']) ?>">
-                        <img src="./assets/img/logo tef.png" alt="<?= htmlspecialchars($job['company_name']) ?>" title="<?= htmlspecialchars($job['company_name']) ?>">
-                      </a>
+
                     </div>
-
-                    <!-- View Details Button -->
-                    <!-- <a href="view_jobs.php?id=<?= $job['id'] ?>" class="btn btn-primary mt-3 w-50">
-                      <i class="fas fa-eye"></i> View Details
-                    </a> -->
-                    <a href="view_jobs.php?id=<?= $job['id'] ?>" class="btn btn-primary mt-3 w-75">
-                      <i class="fas fa-eye"></i> View Details
-                    </a>
-                    <!-- <a href="login.php?role=jobseeker" class="btn btn-primary mt-3 w-50">
-                      <i class="fas fa-eye"></i> View Details
-                    </a> -->
-
-
                   </div>
                 </div>
-              </div>
+              </a>
+              <!-- End anchor -->
+
             </div>
           <?php endwhile; ?>
         <?php else: ?>
           <p class="text-center">No jobs found.</p>
         <?php endif; ?>
       </div>
+
       <!--Featured Job end-->
 
       <!--button start-->
-      <div class="viewallbtn"><a href="https://www.sharjeelanjum.com/demos/jobsportal-update/search-jobs?is_featured=1">View All Featured Jobs</a></div>
+      <!-- <div class="viewallbtn"><a href="https://www.sharjeelanjum.com/demos/jobsportal-update/search-jobs?is_featured=1">View All Featured Jobs</a></div> -->
       <!--button end-->
 
     </div>
