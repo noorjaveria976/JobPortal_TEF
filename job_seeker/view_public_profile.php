@@ -44,8 +44,6 @@ if ($user_id == 0) {
       /* background: #f1f5ff; */
       padding: 20px;
       border-radius: 15px;
-      /* margin: 0 50px; */
-      /* margin-bottom: 30px; */
       padding-bottom: 0px;
     }
 
@@ -156,20 +154,20 @@ if ($user_id == 0) {
                 <!-- coverphoto -->
                 <div class="row usercoverphoto">
                   <div class="col-12 image">
-                    <img src="<?php echo $cover_image; ?>" alt="Job Seeker" title="Job Seeker" style="height: 240px;">
+                    <img src="<?php echo $cover_image; ?>" alt="Job Seeker" title="Job Seeker" style="height: 240px; display: block; width: 100%;">
 
                   </div>
                 </div>
                 <!-- profile -->
                 <div class="profileban border bg-white text-dark">
-                  <div class="abtuser">
+                  <div class="abtuser"  padding: 20px; border-radius: 15px; padding-bottom: 0px;>
                     <div class="row d-flex">
                       <div class="col-lg-3 col-md-4">
                        
                         <div class="uavatar">
                           <!-- <img src="./assets/img/users/user-11.jpg" alt="Job Seeker" title="Job Seeker"> -->
                           <img src="<?php echo $profileImg; ?>"
-                            style="max-width:100px; max-height:100px;" alt="Profile">
+                            style="max-width:100px; max-height:100px; display: block; object-fit: cover; border-radius: 5px;" alt="Profile">
                         </div>
                       </div>
                       <div class="col-lg-9 col-md-8">
@@ -392,11 +390,11 @@ if ($user_id == 0) {
                     <?php if (mysqli_num_rows($query) > 0): ?>
                       <?php while ($row = mysqli_fetch_assoc($query)): ?>
                         <div class="col-12 col-md-6 col-lg-3">
-                          <div class="project-card">
+                          <div class="project-card" style="position: relative; overflow: hidden; border-radius: 8px; margin-bottom: 20px;">
                             <img src="uploads/projects/<?php echo htmlspecialchars($row['image']); ?>"
                               alt="<?php echo htmlspecialchars($row['name']); ?>"
                               title="<?php echo htmlspecialchars($row['name']); ?>"
-                              class="img-fluid">
+                              class="img-fluid" style="width: 100%; height: auto; transition: all 0.4s ease;">
 
 
                             <div class="project-overlay">
@@ -445,19 +443,19 @@ if ($user_id == 0) {
 
                       <div class="candidateinfo">
                         <?php if (!empty($profile['phone'])): ?>
-                          <div class="loctext mt-3"><i class="fa fa-phone"></i> <a href="tel:<?= $profile['phone'] ?>"><?= $profile['phone'] ?></a></div>
+                          <div class="loctext mt-3" style="margin-right: 5px; width: 24px; color: #6777ef;"><i class="fa fa-phone"></i> <a href="tel:<?= $profile['phone'] ?>"><?= $profile['phone'] ?></a></div>
                         <?php endif; ?>
 
                         <?php if (!empty($profile['mobile_num'])): ?>
-                          <div class="loctext mt-3"><i class="fa fa-mobile"></i> <a href="tel:<?= $profile['mobile_num'] ?>"><?= $profile['mobile_num'] ?></a></div>
+                          <div class="loctext mt-3" style="margin-right: 5px; width: 24px; color: #6777ef;"><i class="fa fa-mobile"></i> <a href="tel:<?= $profile['mobile_num'] ?>"><?= $profile['mobile_num'] ?></a></div>
                         <?php endif; ?>
 
                         <?php if (!empty($profile['email'])): ?>
-                          <div class="loctext mt-3"><i class="fa fa-envelope"></i> <a href="mailto:<?= $profile['email'] ?>"><?= $profile['email'] ?></a></div>
+                          <div class="loctext mt-3" style="margin-right: 5px; width: 24px; color: #6777ef;"><i class="fa fa-envelope"></i> <a href="mailto:<?= $profile['email'] ?>"><?= $profile['email'] ?></a></div>
                         <?php endif; ?>
 
                         <?php if (!empty($profile['street_address'])): ?>
-                          <div class="loctext mt-3"><i class="fa fa-map-marker"></i> <?= $profile['street_address'] ?></div>
+                          <div class="loctext mt-3" style="margin-right: 5px; width: 24px; color: #6777ef;"><i class="fa fa-map-marker"></i> <?= $profile['street_address'] ?></div>
                         <?php endif; ?>
                       </div>
                     </div>
@@ -476,7 +474,7 @@ if ($user_id == 0) {
                         <ul class="jbdetail row">
                           <li class="col-lg-6 col-md-6 col-6">
                             <div class="jbitlist">
-                              <i class="fas fa-check-circle fast"></i>
+                              <i class="fas fa-check-circle fast" style="font-size: 20px;color: #6777ef;"></i>
                               <div class="jbitdata mb-2">
                                 <span class="d-block">Verified</span>
                                 <strong>Yes</strong>
@@ -486,7 +484,7 @@ if ($user_id == 0) {
 
                           <li class="col-lg-6 col-md-6 col-6">
                             <div class="jbitlist mb-2">
-                              <i class="fas fa-handshake fast"></i>
+                              <i class="fas fa-handshake fast" style="font-size: 20px;color: #6777ef;"></i>
                               <div class="jbitdata">
                                 <span class="d-block">Ready for Hire</span>
                                 <strong>Yes</strong>
@@ -502,7 +500,7 @@ if ($user_id == 0) {
                             ?>
                             <li class="col-lg-6 col-md-6 col-6">
                               <div class="jbitlist mb-2">
-                                <i class="fas fa-birthday-cake fast"></i>
+                                <i class="fas fa-birthday-cake fast" style="font-size: 20px;color: #6777ef;"></i>
                                 <div class="jbitdata">
                                   <span class="d-block">Age</span>
                                   <strong><?= $age ?> Years</strong>
@@ -514,7 +512,7 @@ if ($user_id == 0) {
                           <?php if (!empty($profile['gender'])): ?>
                             <li class="col-lg-6 col-md-6 col-6">
                               <div class="jbitlist mb-2">
-                                <i class="fas fa-user-circle fast"></i>
+                                <i class="fas fa-user-circle fast" style="font-size: 20px;color: #6777ef;"></i>
                                 <div class="jbitdata">
                                   <span class="d-block">Gender</span>
                                   <strong><?= $profile['gender'] ?></strong>
@@ -526,7 +524,7 @@ if ($user_id == 0) {
                           <?php if (!empty($profile['marital_status'])): ?>
                             <li class="col-lg-6 col-md-6 col-6">
                               <div class="jbitlist mb-2">
-                                <i class="fas fa-book fast"></i>
+                                <i class="fas fa-book fast" style="font-size: 20px;color: #6777ef;"></i>
                                 <div class="jbitdata">
                                   <span class="d-block">Marital Status</span>
                                   <strong><?= $profile['marital_status'] ?></strong>
@@ -538,7 +536,7 @@ if ($user_id == 0) {
                           <?php if (!empty($profile['job_experience'])): ?>
                             <li class="col-lg-6 col-md-6 col-6">
                               <div class="jbitlist mb-2">
-                                <i class="fas fa-briefcase fast"></i>
+                                <i class="fas fa-briefcase fast" style="font-size: 20px;color: #6777ef;"></i>
                                 <div class="jbitdata">
                                   <span class="d-block">Experience</span>
                                   <strong><?= $profile['job_experience'] ?> years</strong>
@@ -550,7 +548,7 @@ if ($user_id == 0) {
                           <?php if (!empty($profile['career_level'])): ?>
                             <li class="col-lg-6 col-md-6 col-6">
                               <div class="jbitlist mb-2">
-                                <i class="fas fa-code-branch fast"></i>
+                                <i class="fas fa-code-branch fast" style="font-size: 20px;color: #6777ef;"></i>
                                 <div class="jbitdata">
                                   <span class="d-block">Career Level</span>
                                   <strong><?= $profile['career_level'] ?></strong>
@@ -561,7 +559,7 @@ if ($user_id == 0) {
 
                           <li class="col-lg-6 col-md-6 col-6">
                             <div class="jbitlist mb-2">
-                              <i class="fas fa-map-marker-alt fast"></i>
+                              <i class="fas fa-map-marker-alt fast" style="font-size: 20px;color: #6777ef;"></i>
                               <div class="jbitdata">
                                 <span class="d-block">Location</span>
                                 <strong>
@@ -574,7 +572,7 @@ if ($user_id == 0) {
                           <?php if (!empty($profile['current_salary'])): ?>
                             <li class="col-lg-6 col-md-6 col-6">
                               <div class="jbitlist mb-2">
-                                <i class="fas fa-donate fast"></i>
+                                <i class="fas fa-donate fast" style="font-size: 20px;color: #6777ef;"></i>
                                 <div class="jbitdata">
                                   <span class="d-block">Current Salary</span>
                                   <strong><?= $profile['current_salary'] ?></strong>
@@ -586,7 +584,7 @@ if ($user_id == 0) {
                           <?php if (!empty($profile['expected_salary'])): ?>
                             <li class="col-lg-6 col-md-6 col-6">
                               <div class="jbitlist">
-                                <i class="fas fa-hand-holding-usd fast"></i>
+                                <i class="fas fa-hand-holding-usd fast" style="font-size: 20px;color: #6777ef;"></i>
                                 <div class="jbitdata">
                                   <span class="d-block">Expected Salary</span>
                                   <strong><?= $profile['expected_salary'] ?></strong>

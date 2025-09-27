@@ -2,7 +2,7 @@
 <html lang="en">
 
 
-<!-- blank.html  21 Nov 2019 03:54:41 GMT -->
+
 
 <head>
     <meta charset="UTF-8">
@@ -10,24 +10,9 @@
     <title>TEF - Admin Dashboard Template</title>
     <?php include('include/source.html'); ?>
     <style>
-        li a {
-            text-decoration: none;
-            color: black;
-            list-style-type: none;
-        }
+       
 
-        .jobcompany .company-logo {
-            display: block;
-            flex-shrink: 0;
-        }
-
-        .jobcompany .company-logo img {
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-            border: 2px solid #ffffff;
-        }
+        
     </style>
 </head>
 
@@ -60,9 +45,9 @@
                                                         <div class="d-flex py-2 align-items-center">
                                                             <div class="jobcompany px-4">
 
-                                                                <a href="" class="company-logo" title="Multimedia Design"><img src="https://www.sharjeelanjum.com/demos/jobsportal-update/company_logos/multimedia-design-1614272292-782.jpg" alt="Multimedia Design" title="Multimedia Design"> </a>
+                                                                <a href="" class="d-block flex-shrink-0" title="Multimedia Design"><img src="https://www.sharjeelanjum.com/demos/jobsportal-update/company_logos/multimedia-design-1614272292-782.jpg" alt="Multimedia Design" title="Multimedia Design" style=" border-radius: 50%; width: 40px; height: 40px; object-fit: contain; border: 2px solid #ffffff;"> </a>
                                                             </div>
-                                                           
+
                                                             <div class="user-name d-flex justify-content-between">
                                                                 <div class="author pe-5 text-dark"> <span>Multimedia Design</span>
                                                                 </div>
@@ -305,6 +290,6 @@
 </body>
 
 
-<!-- blank.html  21 Nov 2019 03:54:41 GMT -->
+
 
 </html>

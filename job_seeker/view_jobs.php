@@ -53,61 +53,7 @@ if (isset($_GET['id'])) {
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>TEF - Admin Dashboard Template</title>
     <?php include('include/source.html'); ?>
-    <style>
-        .date-box {
-            background-color: #3498db;
-            color: white;
-            text-align: center;
-            padding: 5px;
-            border-radius: 5px;
-            width: 60px;
-            font-size: 14px;
-        }
 
-        .date-box strong {
-            font-size: 18px;
-            display: block;
-        }
-
-        .job-logo {
-            width: 70px;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        .left-col {
-            background-color: #f8f9fa;
-            border-right: 2px solid #e9ecef;
-            padding: 15px;
-        }
-
-        .section-title {
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-        }
-
-        /* Remove borders from all rows except section headings */
-        .custom-table td,
-        .custom-table th {
-            border-bottom: none !important;
-        }
-
-        /* Keep bottom border for heading rows */
-        .custom-table thead th,
-        .custom-table .section-heading th {
-            border-bottom: 1px solid #dee2e6 !important;
-        }
-
-        .tag {
-            background-color: #5bc0de;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            display: inline-block;
-            margin: 3px 3px 3px 0;
-        }
-    </style>
 </head>
 
 <body>
@@ -132,7 +78,7 @@ if (isset($_GET['id'])) {
                                 <div class="card-body">
                                     <div class="row">
                                         <!-- Left Column -->
-                                        <div class="col-md-4 left-col">
+                                        <div class="col-md-4" style="background-color: #f8f9fa; border-right: 2px solid #e9ecef; padding: 15px;">
                                             <table class="table custom-table">
                                                 <thead>
                                                     <tr>
@@ -141,56 +87,56 @@ if (isset($_GET['id'])) {
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th>Company:</th>
-                                                        <td><?= $job['company_name'] ?></td>
+                                                        <th class="border-bottom-0">Company:</th>
+                                                        <td class="border-bottom-0"><?= $job['company_name'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Country:</th>
-                                                        <td><?= $job['country_id'] ?></td>
+                                                        <th class="border-bottom-0">Country:</th>
+                                                        <td class="border-bottom-0"><?= $job['country_id'] ?></td>
                                                     </tr>
                                                     <!-- <tr>
                                                            <th>State:</th>
                                                            <td><?= $job['state_id'] ?></td>
                                                        </tr> -->
                                                     <tr>
-                                                        <th>City:</th>
-                                                        <td><?= $job['city_id'] ?></td>
+                                                        <th class="border-bottom-0">City:</th>
+                                                        <td class="border-bottom-0"><?= $job['city_id'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Total Positions:</th>
-                                                        <td><?= $job['num_of_positions'] ?></td>
+                                                        <th class="border-bottom-0">Total Positions:</th>
+                                                        <td class="border-bottom-0"><?= $job['num_of_positions'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Career Level:</th>
-                                                        <td><?= $job['career_level_id'] ?></td>
+                                                        <th class="border-bottom-0">Career Level:</th>
+                                                        <td class="border-bottom-0"><?= $job['career_level_id'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Functional Area:</th>
-                                                        <td><?= $job['functional_area_id'] ?></td>
+                                                        <th class="border-bottom-0">Functional Area:</th>
+                                                        <td class="border-bottom-0"><?= $job['functional_area_id'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Job Type:</th>
-                                                        <td><?= $job['job_type_id'] ?></td>
+                                                        <th class="border-bottom-0">Job Type:</th>
+                                                        <td class="border-bottom-0"><?= $job['job_type_id'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Job Shift:</th>
-                                                        <td><?= $job['job_shift_id'] ?></td>
+                                                        <th class="border-bottom-0">Job Shift:</th>
+                                                        <td class="border-bottom-0"><?= $job['job_shift_id'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Experience:</th>
-                                                        <td><?= $job['job_experience_id'] ?></td>
+                                                        <th class="border-bottom-0">Experience:</th>
+                                                        <td class="border-bottom-0"><?= $job['job_experience_id'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Gender:</th>
-                                                        <td><?= $job['gender_id'] ?></td>
+                                                        <th class="border-bottom-0">Gender:</th>
+                                                        <td class="border-bottom-0"><?= $job['gender_id'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Expiry Date:</th>
-                                                        <td><?= date("d-m-Y", strtotime($job['expiry_date'])) ?></td>
+                                                        <th class="border-bottom-0">Expiry Date:</th>
+                                                        <td class="border-bottom-0"><?= date("d-m-Y", strtotime($job['expiry_date'])) ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Salary:</th>
-                                                        <td>
+                                                        <th class="border-bottom-0">Salary:</th>
+                                                        <td class="border-bottom-0">
                                                             <?php if ($job['hide_salary'] == 1): ?>
                                                                 Hidden
                                                             <?php else: ?>
@@ -209,9 +155,9 @@ if (isset($_GET['id'])) {
                                             </a>
 
                                             <div class="d-flex align-items-center mb-3">
-                                                <img src="./assets/img/logo tef.png" alt="Logo" class="job-logo me-3">
-                                                <div class="date-box me-3">
-                                                    <strong><?= date("d", strtotime($job['created_at'] ?? $job['expiry_date'])) ?></strong>
+                                                <img src="./assets/img/logo tef.png" alt="Logo" class="job-logo me-3" style=" width: 70px; height: auto; border-radius: 5px;">
+                                                <div class="date-box me-3" style="background-color: #3498db; color: white; text-align: center; padding: 5px; border-radius: 5px; width: 60px; font-size: 14px;">
+                                                    <strong style=" font-size: 18px; display: block;"><?= date("d", strtotime($job['created_at'] ?? $job['expiry_date'])) ?></strong>
                                                     <?= date("M", strtotime($job['created_at'] ?? $job['expiry_date'])) ?>
                                                 </div>
                                                 <div>
@@ -220,14 +166,14 @@ if (isset($_GET['id'])) {
                                                 </div>
                                             </div>
 
-                                            <h6 class="section-title text-danger">Job Description</h6>
+                                            <h6 class=" text-danger border-bottom pb-1 mb-2">Job Description</h6>
                                             <p><?= nl2br($job['description']) ?></p>
 
-                                            <h6 class="section-title text-danger">Benefits</h6>
+                                            <h6 class=" text-danger border-bottom pb-1 mb-2">Benefits</h6>
                                             <p><?= nl2br($job['benefits']) ?></p>
 
-                                            <h6 class="section-title text-danger mt-3">Degree Level</h6>
-                                            <span class="tag"><?= $job['degree_level_id'] ?></span>
+                                            <h6 class=" text-danger mt-3 border-bottom pb-1 mb-2">Degree Level</h6>
+                                            <span class="bg-info text-white px-2 py-1 rounded d-inline-block me-1 mb-1"><?= $job['degree_level_id'] ?></span>
 
                                             <div class="mt-4">
                                                 <?php if (!empty($msg)) echo $msg; ?>

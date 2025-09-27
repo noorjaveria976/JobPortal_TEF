@@ -24,7 +24,7 @@ $result = mysqli_query($conn, $sql);
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>TEF - Admin Dashboard Template</title>
     <?php include('include/source.html'); ?>
-    
+
 </head>
 
 <body>
@@ -42,60 +42,60 @@ $result = mysqli_query($conn, $sql);
                 <section class="section">
                     <div class="section-body">
                         <!-- add content here -->
-                       <div class="container my-4">
-    <h3 class="mb-4">My Applied Jobs</h3>
+                        <div class="container my-4">
+                            <h3 class="mb-4">My Applied Jobs</h3>
 
-    <?php if (mysqli_num_rows($result) > 0): ?>
-        <?php while ($job = mysqli_fetch_assoc($result)): ?>
-            <div class="card card-primary mb-3">
-                <div class="card-body text-dark">
-                    <div class="row">
-                        <!-- Left Column -->
-                        <div class="col-md-8 col-sm-8 d-flex">
-                            <!-- Job Image -->
-                            <div class="jobimg border p-1 rounded me-3" style="width: 80px; height: 80px; overflow:hidden;">
-                                <img src="./assets/img/logo tef.png" alt="<?= $job['company_name'] ?>" title="<?= $job['company_name'] ?>" class="img-fluid">
-                            </div>
-                            <!-- Job Info -->
-                            <div class="jobinfo">
-                                <h3 class="fs-5 mb-1">
-                                    <a class="text-decoration-none text-dark" href="view_jobs.php?id=<?= $job['id'] ?>" title="<?= $job['title'] ?>">
-                                        <?= $job['title'] ?>
-                                    </a>
-                                </h3>
-                                <div class="companyName mb-1">
-                                    <a class="text-decoration-none text-dark" href="view_jobs.php?id=<?= $job['id'] ?>" title="<?= $job['company_name'] ?>">
-                                        <?= $job['company_name'] ?>
-                                    </a>
-                                </div>
-                                <div class="location">
-                                    <label class="fulltime bg-success border rounded-pill px-2 text-white" title="<?= $job['job_shift_id'] ?>">
-                                        <?= $job['job_shift_id'] ?>
-                                    </label>
-                                    - <span><?= $job['city_id'] ?></span>
-                                </div>
-                            </div>
+                            <?php if (mysqli_num_rows($result) > 0): ?>
+                                <?php while ($job = mysqli_fetch_assoc($result)): ?>
+                                    <div class="card card-primary mb-3">
+                                        <div class="card-body text-dark">
+                                            <div class="row">
+                                                <!-- Left Column -->
+                                                <div class="col-md-8 col-sm-8 d-flex">
+                                                    <!-- Job Image -->
+                                                    <div class="jobimg border p-1 rounded me-3" style="width: 80px; height: 80px; overflow:hidden;">
+                                                        <img src="./assets/img/logo tef.png" alt="<?= $job['company_name'] ?>" title="<?= $job['company_name'] ?>" class="img-fluid">
+                                                    </div>
+                                                    <!-- Job Info -->
+                                                    <div class="jobinfo">
+                                                        <h3 class="fs-5 mb-1">
+                                                            <a class="text-decoration-none text-dark" href="view_jobs.php?id=<?= $job['id'] ?>" title="<?= $job['title'] ?>">
+                                                                <?= $job['title'] ?>
+                                                            </a>
+                                                        </h3>
+                                                        <div class="companyName mb-1">
+                                                            <a class="text-decoration-none text-dark" href="view_jobs.php?id=<?= $job['id'] ?>" title="<?= $job['company_name'] ?>">
+                                                                <?= $job['company_name'] ?>
+                                                            </a>
+                                                        </div>
+                                                        <div class="location">
+                                                            <label class="fulltime bg-success border rounded-pill px-2 text-white" title="<?= $job['job_shift_id'] ?>">
+                                                                <?= $job['job_shift_id'] ?>
+                                                            </label>
+                                                            - <span><?= $job['city_id'] ?></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Right Column -->
+                                                <div class="col-md-4 col-sm-4 d-flex justify-content-end align-items-start">
+                                                    <a href="view_jobs.php?id=<?= $job['id'] ?>" class="btn btn-outline-primary py-2 px-4 mt-3">
+                                                        VIEW DETAILS
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <!-- Job Short Description -->
+                                            <p class="mt-3 text-muted">
+                                                <?= substr(strip_tags($job['description']), 0, 150) ?>...
+                                            </p>
+                                        </div>
+                                    </div>
+                                <?php endwhile; ?>
+                            <?php else: ?>
+                                <p class="text-muted">You have not applied to any jobs yet.</p>
+                            <?php endif; ?>
                         </div>
-
-                        <!-- Right Column -->
-                        <div class="col-md-4 col-sm-4 d-flex justify-content-end align-items-start">
-                            <a href="view_jobs.php?id=<?= $job['id'] ?>" class="btn btn-outline-primary py-2 px-4 mt-3">
-                                VIEW DETAILS
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Job Short Description -->
-                    <p class="mt-3 text-muted">
-                        <?= substr(strip_tags($job['description']), 0, 150) ?>...
-                    </p>
-                </div>
-            </div>
-        <?php endwhile; ?>
-    <?php else: ?>
-        <p class="text-muted">You have not applied to any jobs yet.</p>
-    <?php endif; ?>
-</div>
                     </div>
                 </section>
                 <div class="settingSidebar">
