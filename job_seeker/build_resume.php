@@ -522,6 +522,7 @@ include 'include/config.php'; // DB connection
                         </div>
                     </div>
                 </div>
+                <!-- setting sidebar ended -->
             </div>
             <!-- footer -->
             <?php include('include/footer.html'); ?>
@@ -646,54 +647,7 @@ include 'include/config.php'; // DB connection
         </div>
     </div>
 
-    <!-- JS for Image Upload Preview -->
-    <!-- <script>
-  const uploadBox = document.getElementById('uploadBox');
-  const imageInput = document.getElementById('imageInput');
-  const previewImage = document.getElementById('previewImage');
-  const uploadText = document.getElementById('uploadText');
-
-  uploadBox.addEventListener('click', () => {
-    imageInput.click();
-  });
-
-  imageInput.addEventListener('change', (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        previewImage.src = e.target.result;
-        previewImage.style.display = 'block';
-        uploadText.style.display = 'none';
-      };
-      reader.readAsDataURL(file);
-    }
-  });
-</script> -->
-
-
-    <!-- <script>
-        var uploadBox = document.getElementById('uploadBox');
-        var imageInput = document.getElementById('imageInput');
-        var previewImage = document.getElementById('previewImage');
-        var uploadText = document.getElementById('uploadText');
-
-        uploadBox.addEventListener('click', () => imageInput.click());
-        imageInput.addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    previewImage.src = e.target.result;
-                    previewImage.style.display = 'block';
-                    uploadText.style.display = 'none';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    </script> -->
-
-
+    
     <!-- JS for Image Upload Preview -->
     <script>
         const uploadBox = document.getElementById('uploadBox');

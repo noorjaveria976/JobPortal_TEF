@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include 'include/config.php';
 ?>
@@ -198,18 +198,18 @@ include 'include/config.php';
             </div>
           </div>
           <!-- coverphoto -->
-          <div class="row usercoverphoto">
+          <div class="row usercoverphoto" style="position: relative; height: 300px; overflow: hidden; border-radius: 15px; background: #eee;">
             <div class="col-12 px-0">
               <img src="./assets/img/cover pic.jpg" class="w-100 d-block" alt="Job Seeker" title="Job Seeker">
               <a href="my_profile.php" class="text-decoration-none"><i class="fas fa-edit"></i></a>
             </div>
           </div>
           <!-- profile -->
-          <div class="profileban">
-            <div class="abtuser">
+          <div class="profileban" style="position: relative; margin-top: -70px;">
+            <div class="abtuser" style="background: #f1f5ff; padding: 20px; border-radius: 15px; margin: 0 50px; margin-bottom: 30px;">
               <div class="row">
                 <div class="col-lg-2 col-md-3">
-                  <div class="uavatar"><img src="./assets/img/users/user-11.jpg" alt="Job Seeker" title="Job Seeker"></div>
+                  <div class="uavatar"><img src="./assets/img/users/user-11.jpg" alt="Job Seeker" title="Job Seeker" style="display: block; width: 120px; height: 120px; object-fit: cover; border-radius: 5px;"></div>
                 </div>
                 <div class="col-lg-10 col-md-9">
                   <h4>Job Seeker</h4>
@@ -255,8 +255,8 @@ include 'include/config.php';
                       <div class="ftjobcomp">
                         <div>Mar 07, 2025</div>
                         <a href="" class="text-decoration-none text-dark" title="Power Color">Power Color</a>
-                      </div>
-                      <a href="" class="company-logo" title="Power Color"><img src="./assets/img/power-color-1536854682-955.jpg" alt="Power Color" title="Power Color"></a>
+                      </div>           
+                      <a href="" class="company-logo" title="Power Color" style=" display: block; flex-shrink: 0;"><img src="./assets/img/power-color-1536854682-955.jpg" alt="Power Color" title="Power Color" style=" border-radius: 50%;  width: 60px;  height: 60px; object-fit: contain; border: 2px solid #ffffff;"></a>
                     </div>
                   </div>
                 </div>
@@ -285,7 +285,7 @@ include 'include/config.php';
                         <div>Mar 07, 2025</div>
                         <a href="" class="text-decoration-none text-dark" title="Power Color">Multimedia Design </a>
                       </div>
-                      <a href="" class="company-logo" title="Power Color"><img src="./assets/img/power-color-1536854682-955.jpg" alt="Power Color" title="Power Color"></a>
+                      <a href="" class="company-logo" title="Power Color" style=" display: block; flex-shrink: 0;"><img src="./assets/img/power-color-1536854682-955.jpg" alt="Power Color" title="Power Color" style=" border-radius: 50%;  width: 60px;  height: 60px; object-fit: contain; border: 2px solid #ffffff;"></a>
                     </div>
                   </div>
                 </div>
@@ -314,7 +314,7 @@ include 'include/config.php';
                         <div>Mar 07, 2025</div>
                         <a href="" class="text-decoration-none text-dark" title="Power Color">Power Wave </a>
                       </div>
-                      <a href="" class="company-logo" title="Power Color"><img src="./assets/img/power-color-1536854682-955.jpg" alt="Power Color" title="Power Color"></a>
+                      <a href="" class="company-logo" title="Power Color" style=" display: block; flex-shrink: 0;"><img src="./assets/img/power-color-1536854682-955.jpg" alt="Power Color" title="Power Color" style=" border-radius: 50%;  width: 60px;  height: 60px; object-fit: contain; border: 2px solid #ffffff;"></a>
                     </div>
                   </div>
                 </div>
