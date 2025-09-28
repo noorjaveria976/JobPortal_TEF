@@ -348,7 +348,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                 <!-- Submit -->
                                 <div class="col-md-12 mt-3">
-                                    <button type="submit" class="btn1">
+                                    <button type="submit" class="btn1" style=" background-color: #0400ff; color: #ffffff; padding: 10px 18px; border-radius: 5px; border: none; transition: all 0.3s ease; width: 100%; height: 40px;">
                                         <?= $job_id > 0 ? "Update Job" : "Post Job" ?>
                                     </button>
                                 </div>
@@ -356,6 +356,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </form>
                         <hr>
                     </div>
+                </section>
             </div>
         </div>
     </div>

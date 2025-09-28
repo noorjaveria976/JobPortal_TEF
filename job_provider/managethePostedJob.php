@@ -652,6 +652,7 @@ include "../job_seeker/include/config.php";
 
                         </div>
                     </div>
+                </section>
             </div>
             <!-- Pagination end -->
         </div>

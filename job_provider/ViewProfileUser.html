@@ -22,46 +22,44 @@
     <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
     <style>
         .userdetailbox ul {
-    list-style: none; /* default bullets hataye */
-    padding-left: 0;
-}
+            list-style: none; padding-left: 0;
+            
+            
+        }
 
-.userdetailbox ul li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 8px;
-}
+        .userdetailbox ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
 
-.userdetailbox ul li::before {
-    content: "\f00c"; /* Font Awesome check icon */
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #007bff; /* blue */
-}
-.userlinkstp .action-btn {
-    background-color: #f0f0f0; /* normal bg */
-    color: #000;               /* normal text */
-    padding: 8px 16px;
-    border-radius: 5px;
-    text-decoration: none;
-    display: inline-block;
-    margin: 5px;
-    transition: all 0.3s ease;
-}
+        .userdetailbox ul li::before {
+            content: "\f00c";
+            /* Font Awesome check icon */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #007bff;
+            /* blue */
+        }
 
-.userlinkstp .action-btn:hover {
-    background-color: blue;  /* hover bg */
-    color: white;            /* hover text */
-}
+        .userlinkstp .action-btn {
+            background-color: #f0f0f0;   color: #000; padding: 8px 16px; border-radius: 5px; text-decoration: none; display: inline-block; margin: 5px; transition: all 0.3s ease;
+        }
 
-.userlinkstp .action-btn:hover i {
-    color: white; /* icon bhi white ho */
-}
+        .userlinkstp .action-btn:hover {
+            background-color: blue;
+            /* hover bg */
+            color: white;
+            /* hover text */
+        }
 
-
+        .userlinkstp .action-btn:hover i {
+            color: white;
+            /* icon bhi white ho */
+        }
     </style>
 </head>
 
@@ -229,111 +227,117 @@
                     </li>
                 </ul>
             </nav>
-             <div class="main-sidebar sidebar-style-2">
-        <aside id="sidebar-wrapper">
-          <div class="sidebar-brand">
-            <a href="index.html"> <img alt="image" src="assets/img/logo.png" class="header-logo" /> <span
-                class="logo-name">Otika</span>
-            </a>
-          </div>
-          <ul class="sidebar-menu">
-            <li class="menu-header">Main</li>
-            <li class="dropdown active">
-              <a href="index.html" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Edit Account
-                  Detail</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="./editAccountDetail.html">Edit Acount detail</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Company Public
-                  Profile</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="./CompanyPuplicProfile.html">Company Public Profile</a></li>
+            <div class="main-sidebar sidebar-style-2">
+                <aside id="sidebar-wrapper">
+                    <div class="sidebar-brand">
+                        <a href="index.html"> <img alt="image" src="assets/img/logo.png" class="header-logo" /> <span
+                                class="logo-name">Otika</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li class="menu-header">Main</li>
+                        <li class="dropdown active">
+                            <a href="index.html" class="nav-link"><i
+                                    data-feather="monitor"></i><span>Dashboard</span></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                    data-feather="briefcase"></i><span>Edit Account
+                                    Detail</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="./editAccountDetail.html">Edit Acount detail</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                    data-feather="command"></i><span>Company Public
+                                    Profile</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="./CompanyPuplicProfile.html">Company Public Profile</a>
+                                </li>
 
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>Post a
-                  Jobs</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="./postJob.html">Post a Jobs</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>Post
+                                    a
+                                    Jobs</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="./postJob.html">Post a Jobs</a></li>
 
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>Manage
-                  Jobs</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="./managethePostedJob.html">Manage Posted job</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
-                  CV search Package</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="./CVSearchPackage.html">Cv
-                    Search packages
-                  </a></li>
-              </ul>
-            </li>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
-                  Payment History</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="./paymentHistory.html">Payment History</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
-                  Unlock users</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="./UnlockUser.html">Unlcok Users</a></li>
-                \
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
-                  Company Messages</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="./companymesage.html">Company Messages</a></li>
-              </ul>
-            </li>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
-                  Company Profile</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="./CompanyFlowers.html"> Company Profile</a></li>
-                <!-- <li><a class="nav-link" href="./Testimonial_form.html">Add new Testimonial</a></li> -->
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
-                  Location</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="./manage_location.html">Manage Location</a></li>
-                <li><a class="nav-link" href="./manage_location_form.html">Add new Location</a></li>
-                <li><a class="nav-link" href="./counteries.html">All Counteries</a></li>
-                <li><a class="nav-link" href="./counteries_detail_form.html">Counteries Details</a></li>
-                <li><a class="nav-link" href="./state_datatable.html">State</a></li>
-                <li><a class="nav-link" href="./cities_table.html">Cities</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                    data-feather="mail"></i><span>Manage
+                                    Jobs</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="./managethePostedJob.html">Manage Posted job</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                                    CV search Package</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="./CVSearchPackage.html">Cv
+                                        Search packages
+                                    </a></li>
+                            </ul>
+                        </li>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                                    Payment History</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="./paymentHistory.html">Payment History</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                                    Unlock users</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="./UnlockUser.html">Unlcok Users</a></li>
+                                \
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                                    Company Messages</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="./companymesage.html">Company Messages</a></li>
+                            </ul>
+                        </li>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                                    Company Profile</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="./CompanyFlowers.html"> Company Profile</a></li>
+                                <!-- <li><a class="nav-link" href="./Testimonial_form.html">Add new Testimonial</a></li> -->
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                                    Location</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="./manage_location.html">Manage Location</a></li>
+                                <li><a class="nav-link" href="./manage_location_form.html">Add new Location</a></li>
+                                <li><a class="nav-link" href="./counteries.html">All Counteries</a></li>
+                                <li><a class="nav-link" href="./counteries_detail_form.html">Counteries Details</a></li>
+                                <li><a class="nav-link" href="./state_datatable.html">State</a></li>
+                                <li><a class="nav-link" href="./cities_table.html">Cities</a></li>
 
-              </ul>
-            </li>
+                            </ul>
+                        </li>
 
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
-                  Employer Package</span></a>
-              <ul class="dropdown-menu">
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>
+                                    Employer Package</span></a>
+                            <ul class="dropdown-menu">
 
-              </ul>
-        </aside>
-      </div>
+                            </ul>
+                </aside>
+            </div>
             <!-- Main Content -->
             <div class="main-content">
                 <section class="section">
@@ -345,15 +349,14 @@
                             <div class="col-md-8">
                                 <div class="usercoverimg">
 
-                                    <img src="./assets/img/image-gallery/uncoverPhoto.png"
-                                        alt="Job Seeker" title="Job Seeker">
+                                    <img src="./assets/img/image-gallery/uncoverPhoto.png" alt="Job Seeker"
+                                        title="Job Seeker">
 
                                 </div>
 
                                 <div class="userMaininfo">
-                                    <div class="userPic"><img
-                                            src="./assets/img/users/user-5.png"
-                                            alt="Job Seeker" title="Job Seeker"> </div>
+                                    <div class="userPic"><img src="./assets/img/users/user-5.png" alt="Job Seeker"
+                                            title="Job Seeker"> </div>
                                     <div class="title">
                                         <h3>Sharjeel Anjum <span>(Information Technology)</span></h3>
                                         <div class="redyto">
@@ -373,16 +376,16 @@
 
 
 
-                           <!-- Buttons -->
-<div class="userlinkstp">
+                                <!-- Buttons -->
+                                <div class="userlinkstp">
 
-    
 
-    <a href="javascript:;" onclick="send_message()" class="action-btn">
-        <i class="fa fa-envelope" aria-hidden="true"></i> Send Message
-    </a>
 
-</div>
+                                    <a href="javascript:;" onclick="send_message()" class="action-btn" style="background-color: #f0f0f0;   color: #000; padding: 8px 16px; border-radius: 5px; text-decoration: none; display: inline-block; margin: 5px; transition: all 0.3s ease;">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i> Send Message
+                                    </a>
+
+                                </div>
 
 
 
@@ -397,39 +400,39 @@
                                 <!-- About Employee start -->
                                 <div class="userdetailbox">
                                     <h3>About me</h3>
-                                 
+
 
                                 </div>
 
                                 <div class="userdetailbox">
                                     <h3><i class="fas fa-tools"></i> Skills</h3>
-                                <p>No Skills Added</p>
+                                    <p>No Skills Added</p>
                                 </div>
-<hr>
+                                <hr>
                                 <div class="userdetailbox">
                                     <h3><i class="fas fa-language"></i> Languages</h3>
                                     <p>No Language Added</p>
                                 </div>
-<hr>
+                                <hr>
                                 <!-- Experience start -->
                                 <div class="userdetailbox">
                                     <h3><i class="fas fa-briefcase"></i> Experience</h3>
-                                     <p>No Experience Added</p>
+                                    <p>No Experience Added</p>
                                 </div>
-<hr>
+                                <hr>
                                 <!-- Education start -->
                                 <div class="userdetailbox">
                                     <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-                                      <p>No Education Added</p>
+                                    <p>No Education Added</p>
                                 </div>
-<hr>
+                                <hr>
                                 <!-- Portfolio start -->
                                 <div class="userdetailbox profileproject">
                                     <h3><i class="fas fa-folder-open"></i> Portfolio</h3>
-                                  <p>No Portfolio Added</p>
+                                    <p>No Portfolio Added</p>
                                 </div>
 
-<hr>
+                                <hr>
 
 
 
@@ -577,6 +580,7 @@
 
 
                     </div>
+                </section>
             </div>
             <div class="modal fade" id="sendmessage" role="dialog">
                 <div class="modal-dialog">
