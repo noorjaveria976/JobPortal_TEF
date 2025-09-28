@@ -13,56 +13,7 @@ include 'include/config.php';
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>TEF - Admin Dashboard Template</title>
   <?php include('include/source.html'); ?>
-  <style>
-    .col-lg-2 {
-      flex: 0 0 auto;
-      width: 16.66666667%;
-    }
-
-
-    .usercoverphoto {
-
-      position: relative;
-      height: 300px;
-      overflow: hidden;
-      border-radius: 15px;
-      background: #eee;
-    }
-
-    .profileban {
-      position: relative;
-      margin-top: -70px;
-    }
-
-    .abtuser {
-      background: #f1f5ff;
-      padding: 20px;
-      border-radius: 15px;
-      margin: 0 50px;
-      margin-bottom: 30px;
-    }
-
-    .uavatar img {
-      display: block;
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
-
-    .jobcompany .company-logo {
-      display: block;
-      flex-shrink: 0;
-    }
-
-    .jobcompany .company-logo img {
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      border: 2px solid #ffffff;
-    }
-  </style>
+  
 </head>
 
 <body>
