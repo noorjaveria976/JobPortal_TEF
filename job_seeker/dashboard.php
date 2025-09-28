@@ -30,7 +30,7 @@ include 'include/config.php';
       <div class="main-content">
         <section class="section">
           <div class="pageSearch  pb-md-5">
-            <form action="https://www.sharjeelanjum.com/demos/jobsportal-update/search-jobs" method="get">
+            <form action="" method="get">
               <!-- Page Title start -->
               <div class="container">
                 <div class="row justify-content-center">
