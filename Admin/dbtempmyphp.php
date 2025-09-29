@@ -23,31 +23,6 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `admin_users`
---
-
-CREATE TABLE `admin_users` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `role` enum('admin','jobseeker','jobprovider') NOT NULL DEFAULT 'admin',
-  `status` enum('Active','Inactive') DEFAULT 'Active',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `admin_users`
---
-
-INSERT INTO `admin_users` (`id`, `name`, `email`, `password`, `role`, `status`, `created_at`) VALUES
-(37, 'SANA  SATTAR', 'fd@gmail.com', '$2y$10$LaagzLKdCPSTENHlT8rl5.L5yWz7CgVsF..Awri6Ks10q9HO.g8S2', 'admin', 'Active', '2025-09-12 13:31:11'),
-(44, 'SANA  SATTAR', 'admin1@gmail.com', '$2y$10$BNMsY1V50fJogb3PX9xI9.C85zrLJ180qkhurrP.WziKVq3DCeC8y', 'admin', 'Active', '2025-09-12 16:39:21'),
-(45, 'SANA  SATTAR', 'irzahh@gmail.com', '$2y$10$6xeL6rDD8ce2LHt9j5Amnu8W12MB4/Pyztt3WVpshSw6IQMYs5JwS', 'admin', 'Active', '2025-09-14 10:57:51'),
-(46, 'Javeria', 'javeria@gmail.com', '$2y$10$Evb4D1ZPeFjkDgo7UH8dh.BRR4In15O1lF9INed7xBP.v6VenDKca', 'admin', 'Active', '2025-09-27 10:52:18');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `admin_blogs`
@@ -641,12 +616,7 @@ INSERT INTO `admin_testimonials` (`id`, `name`, `image`, `review`, `review_date`
 
 -- --------------------------------------------------------
 
---
--- Indexes for table `admin_users`
---
-ALTER TABLE `admin_users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+
 
 --
 -- Indexes for table `admin_blogs`
@@ -716,11 +686,7 @@ ALTER TABLE `admin_genders`
 ALTER TABLE `admin_industries`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `admin_jobs`
---
-ALTER TABLE `admin_jobs`
-  ADD PRIMARY KEY (`id`);
+
 
 --
 -- Indexes for table `admin_job_attributes`
@@ -835,200 +801,184 @@ ALTER TABLE `admin_testimonials`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `admin_users`
---
-ALTER TABLE `admin_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
 
 --
--- AUTO_INCREMENT for table `blogs`
+-- AUTO_INCREMENT for table `admin_blogs`
 --
-ALTER TABLE `blogs`
+ALTER TABLE `admin_blogs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `career_levels`
+-- AUTO_INCREMENT for table `admin_career_levels`
 --
-ALTER TABLE `career_levels`
+ALTER TABLE `admin_career_levels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `companies`
+-- AUTO_INCREMENT for table `admin_companies`
 --
-ALTER TABLE `companies`
+ALTER TABLE `admin_companies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `countries`
+-- AUTO_INCREMENT for table `admin_countries`
 --
-ALTER TABLE `countries`
+ALTER TABLE `admin_countries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `degree_levels`
+-- AUTO_INCREMENT for table `admin_degree_levels`
 --
-ALTER TABLE `degree_levels`
+ALTER TABLE `admin_degree_levels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `degree_types`
+-- AUTO_INCREMENT for table `admin_degree_types`
 --
-ALTER TABLE `degree_types`
+ALTER TABLE `admin_degree_types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `employer_packages`
+-- AUTO_INCREMENT for table `admin_employer_packages`
 --
-ALTER TABLE `employer_packages`
+ALTER TABLE `admin_employer_packages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `faqs`
+-- AUTO_INCREMENT for table `admin_faqs`
 --
-ALTER TABLE `faqs`
+ALTER TABLE `admin_faqs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `functional_areas`
+-- AUTO_INCREMENT for table `admin_functional_areas`
 --
-ALTER TABLE `functional_areas`
+ALTER TABLE `admin_functional_areas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `genders`
+-- AUTO_INCREMENT for table `admin_genders`
 --
-ALTER TABLE `genders`
+ALTER TABLE `admin_genders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `industries`
+-- AUTO_INCREMENT for table `admin_industries`
 --
-ALTER TABLE `industries`
+ALTER TABLE `admin_industries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT for table `jobs`
---
-ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
 
 --
--- AUTO_INCREMENT for table `job_attributes`
+-- AUTO_INCREMENT for table `admin_job_attributes`
 --
-ALTER TABLE `job_attributes`
+ALTER TABLE `admin_job_attributes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `job_experience`
+-- AUTO_INCREMENT for table `admin_job_experience`
 --
-ALTER TABLE `job_experience`
+ALTER TABLE `admin_job_experience`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `job_shifts`
+-- AUTO_INCREMENT for table `admin_job_shifts`
 --
-ALTER TABLE `job_shifts`
+ALTER TABLE `admin_job_shifts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `job_skills`
+-- AUTO_INCREMENT for table `admin_job_skills`
 --
-ALTER TABLE `job_skills`
+ALTER TABLE `admin_job_skills`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `job_titles`
+-- AUTO_INCREMENT for table `admin_job_titles`
 --
-ALTER TABLE `job_titles`
+ALTER TABLE `admin_job_titles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `job_types`
+-- AUTO_INCREMENT for table `admin_job_types`
 --
-ALTER TABLE `job_types`
+ALTER TABLE `admin_job_types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `language_levels`
+-- AUTO_INCREMENT for table `admin_language_levels`
 --
-ALTER TABLE `language_levels`
+ALTER TABLE `admin_language_levels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `major_subjects`
+-- AUTO_INCREMENT for table `admin_major_subjects`
 --
-ALTER TABLE `major_subjects`
+ALTER TABLE `admin_major_subjects`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `manage_location`
+-- AUTO_INCREMENT for table `admin_manage_location`
 --
-ALTER TABLE `manage_location`
+ALTER TABLE `admin_manage_location`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `marital_status`
+-- AUTO_INCREMENT for table `admin_marital_status`
 --
-ALTER TABLE `marital_status`
+ALTER TABLE `admin_marital_status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `notifications`
+-- AUTO_INCREMENT for table `admin_notifications`
 --
-ALTER TABLE `notifications`
+ALTER TABLE `admin_notifications`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `portal_users`
+-- AUTO_INCREMENT for table `admin_portal_users`
 --
-ALTER TABLE `portal_users`
+ALTER TABLE `admin_portal_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `result_grades`
+-- AUTO_INCREMENT for table `admin_result_grades`
 --
-ALTER TABLE `result_grades`
+ALTER TABLE `admin_result_grades`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `seo_pages`
+-- AUTO_INCREMENT for table `admin_seo_pages`
 --
-ALTER TABLE `seo_pages`
+ALTER TABLE `admin_seo_pages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `site_languages`
+-- AUTO_INCREMENT for table `admin_site_languages`
 --
-ALTER TABLE `site_languages`
+ALTER TABLE `admin_site_languages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `system_users`
+-- AUTO_INCREMENT for table `admin_system_users`
 --
-ALTER TABLE `system_users`
+ALTER TABLE `admin_system_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `testimonials`
+-- AUTO_INCREMENT for table `admin_testimonials`
 --
-ALTER TABLE `testimonials`
+ALTER TABLE `admin_testimonials`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 --
--- Constraints for dumped tables
+-- Constraints for table `admin_notifications`
 --
-
---
--- Constraints for table `notifications`
---
-ALTER TABLE `notifications`
+ALTER TABLE `admin_notifications`
   ADD CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `notifications_ibfk_2` FOREIGN KEY (`provider_id`) REFERENCES `system_users` (`id`) ON DELETE CASCADE;
 COMMIT;
