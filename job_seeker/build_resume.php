@@ -53,7 +53,7 @@ include 'include/config.php'; // DB connection
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h4>Attached CV</h4>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i>
+                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i>
                                     </button>
                                 </div>
                                 <div class="card-body">
@@ -194,7 +194,7 @@ include 'include/config.php'; // DB connection
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h4>Experience</h4>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#experienceModal">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#experienceModal">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
@@ -262,7 +262,7 @@ include 'include/config.php'; // DB connection
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h4 onclick="showEducation();">Education</h4>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#educationModal">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#educationModal">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
@@ -325,7 +325,7 @@ include 'include/config.php'; // DB connection
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h4>Skills</h4>
-                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#skillModal">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#skillModal">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
@@ -375,7 +375,7 @@ include 'include/config.php'; // DB connection
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h4>Languages</h4>
-                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#languageModal">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#languageModal">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
@@ -577,7 +577,7 @@ include 'include/config.php'; // DB connection
             </div>
         </div>
     </div>
-    <!-- modal for add projects -->
+    
 
 
     <!-- Project Modal -->
