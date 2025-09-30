@@ -517,7 +517,8 @@ include "./job_seeker/include/config.php";
 
 
 
-  </div><!-- Featured Jobs ends -->
+  </div>
+  <!-- Featured Jobs ends -->
 
 
 
